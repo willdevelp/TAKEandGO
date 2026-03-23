@@ -29,8 +29,9 @@ const Header = ({ panierCount }: HeaderProps) => {
               alt="Le Café Parisien Logo"
               width={40}
               height={40}
+              className='rounded-full'
             />
-            <span className="text-xl font-serif font-bold">Le Café Parisien</span>
+            <span className="text-xl font-serif font-bold">TAKE <span className="text-sm">AND</span> GO</span>
           </Link>
 
           {/* Navigation Desktop */}

@@ -251,7 +251,7 @@
 //       </div>
 //     </Layout>
 //   );
-// };
+// }
 
 // export default Commande;
 

@@ -1,14 +1,10 @@
 import Head from 'next/head';
 import { 
   FaCoffee, 
-  FaHeart, 
-  FaAward, 
-  FaUsers, 
-  FaLeaf, 
-  FaClock,
-  FaMapPin,
-  FaStar,
-  FaChevronRight
+ FaHeart, 
+ FaAward, 
+ FaUsers, 
+  FaLeaf
 } from 'react-icons/fa';
 
 const valeurs = [
@@ -33,7 +29,7 @@ const valeurs = [
     description: "Créer un espace chaleureux où chacun se sent comme à la maison."
   }
 ];
-const APropos = () => {
+export default function APropos() {
 
   const equipe = [
     {
@@ -62,12 +58,12 @@ const APropos = () => {
     }
   ];
 
-  const certifications = [
-    { nom: "Café Bio Équitable", icon: "🌱" },
-    { nom: "Artisan Torréfacteur de France", icon: "🏆" },
-    { nom: "Établissement Responsable", icon: "♻️" },
-    { nom: "Meilleur Café Paris 2023", icon: "⭐" }
-  ];
+  // const certifications = [
+  //   { nom: "Café Bio Équitable", icon: "🌱" },
+  //   { nom: "Artisan Torréfacteur de France", icon: "🏆" },
+  //   { nom: "Établissement Responsable", icon: "♻️" },
+  //   { nom: "Meilleur Café Paris 2023", icon: "⭐" }
+  // ];
 
   return (
     <>
@@ -116,25 +112,6 @@ const APropos = () => {
                   approche innovante des boissons caféinées.
                 </p>
               </div>
-              
-              <div className="mt-8 grid grid-cols-2 gap-6">
-                <div className="text-center p-4 bg-[#F8F4F0] rounded-lg">
-                  <div className="text-3xl font-bold text-[#D4A574] mb-2">50+</div>
-                  <div className="text-gray-600">Boissons Uniques</div>
-                </div>
-                <div className="text-center p-4 bg-[#F8F4F0] rounded-lg">
-                  <div className="text-3xl font-bold text-[#D4A574] mb-2">12</div>
-                  <div className="text-gray-600">Ans d&apos;Expérience</div>
-                </div>
-                <div className="text-center p-4 bg-[#F8F4F0] rounded-lg">
-                  <div className="text-3xl font-bold text-[#D4A574] mb-2">1000+</div>
-                  <div className="text-gray-600">Clients Satisfaits</div>
-                </div>
-                <div className="text-center p-4 bg-[#F8F4F0] rounded-lg">
-                  <div className="text-3xl font-bold text-[#D4A574] mb-2">15</div>
-                  <div className="text-gray-600">Pays Fournisseurs</div>
-                </div>
-              </div>
             </div>
             
             <div className="relative">
@@ -161,6 +138,28 @@ const APropos = () => {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Stats Section */}
+      <section>
+                      <div className="py-16 grid grid-cols-4 px-6 gap-6">
+                <div className="text-center p-4 bg-[#F8F4F0] rounded-lg">
+                  <div className="text-3xl font-bold text-[#D4A574] mb-2">50+</div>
+                  <div className="text-gray-600">Boissons Uniques</div>
+                </div>
+                <div className="text-center p-4 bg-[#F8F4F0] rounded-lg">
+                  <div className="text-3xl font-bold text-[#D4A574] mb-2">12</div>
+                  <div className="text-gray-600">Ans d&apos;Expérience</div>
+                </div>
+                <div className="text-center p-4 bg-[#F8F4F0] rounded-lg">
+                  <div className="text-3xl font-bold text-[#D4A574] mb-2">1000+</div>
+                  <div className="text-gray-600">Clients Satisfaits</div>
+                </div>
+                <div className="text-center p-4 bg-[#F8F4F0] rounded-lg">
+                  <div className="text-3xl font-bold text-[#D4A574] mb-2">15</div>
+                  <div className="text-gray-600">Pays Fournisseurs</div>
+                </div>
+              </div>
       </section>
 
       {/* Valeurs Section */}
@@ -230,7 +229,7 @@ const APropos = () => {
       </section>
 
       {/* Certifications Section */}
-      <section className="py-20 bg-[#3C2A21] text-white">
+      {/* <section className="py-20 bg-[#3C2A21] text-white">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-serif font-bold mb-4">
@@ -256,9 +255,7 @@ const APropos = () => {
             </button>
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   );
 };
-
-export default APropos;

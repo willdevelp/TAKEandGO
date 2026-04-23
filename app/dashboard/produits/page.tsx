@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from "react"
 import type { Produits } from "@/lib/data";
 

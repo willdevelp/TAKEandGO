@@ -35,7 +35,7 @@ export interface Commande {
 }
 
 export interface PanierItem {
-  boisson: Boisson;
+  boisson: Produits;
   quantite: number;
   notes?: string;
 }

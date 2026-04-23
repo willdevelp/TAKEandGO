@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
-import Layout from "@/app/components/Layout/layout"
 import { 
   FaCoffee, 
   FaStar, 
@@ -11,6 +10,9 @@ import {
   FaAward,
   FaLeaf
 } from "react-icons/fa";
+
+import Header from "@/components/header";
+import Footer from '@/components/footer';
 
 type Boisson = {
   id: number;
@@ -87,7 +89,8 @@ export default function Accueil() {
   }, []);
 
   return (
-    <div className="">
+    <>
+      <Header />
       {/* Hero Section */}
        <section className="relative py-32 flex items-center justify-center overflow-hidden">
          <div className="absolute inset-0 z-0">
@@ -258,7 +261,8 @@ export default function Accueil() {
           </div>
         </div>
       </section>
-    </div>
+      <Footer />
+    </>
   );
 };
 

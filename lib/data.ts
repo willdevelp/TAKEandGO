@@ -1,10 +1,10 @@
-export interface Boisson {
+export interface Produits {
   id: number;
   nom: string;
-  description: string;
+  quantite: string;
   prix: number;
-  categorie: 'chaude' | 'sans-alcool' | 'alcoolisee';
-  populaire?: boolean;
+  categorie_id: number;
+  // populaire?: boolean;
   image?: string;
 }
 

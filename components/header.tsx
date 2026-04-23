@@ -6,16 +6,16 @@ import {
   FaBars,
   FaTimes 
 } from "react-icons/fa";
-import { Utilisateur } from '../../lib/data';
+// import { Utilisateur } from '../../lib/data';
 
 import Image from 'next/image';
 
-interface HeaderProps {
-  utilisateur?: Utilisateur;
-  panierCount: number;
-}
+// interface HeaderProps {
+//   utilisateur?: Utilisateur;
+//   panierCount: number;
+// }
 
-const Header = ({ panierCount }: HeaderProps) => {
+export default function Header () {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -53,11 +53,11 @@ const Header = ({ panierCount }: HeaderProps) => {
             <div className="flex items-center space-x-4 ml-4">
               <Link href="/panier" className="relative hover:text-[#D4A574] transition-colors duration-300">
                 <FaShoppingCart className="text-xl" />
-                {panierCount > 0 && (
+                {/* {panierCount > 0 && (
                   <span className="absolute -top-2 -right-2 bg-[#D4A574] text-[#3C2A21] rounded-full w-5 h-5 text-xs flex items-center justify-center">
                     {panierCount}
                   </span>
-                )}
+                )} */}
               </Link>
             </div>
           </nav>
@@ -90,7 +90,7 @@ const Header = ({ panierCount }: HeaderProps) => {
             <div className="pt-4 border-t border-[#4A3728] space-y-4">
               <Link href="/panier" className="flex items-center space-x-2 hover:text-[#D4A574] transition-colors duration-300">
                 <FaShoppingCart />
-                <span>Panier ({panierCount})</span>
+                <span>Panier </span>
               </Link>
             </div>
           </nav>
@@ -100,19 +100,19 @@ const Header = ({ panierCount }: HeaderProps) => {
   );
 };
 
-interface LayoutProps {
-  children: React.ReactNode;
-  utilisateur?: Utilisateur;
-  panierCount?: number;
-}
+// interface LayoutProps {
+//   children: React.ReactNode;
+//   utilisateur?: Utilisateur;
+//   panierCount?: number;
+// }
 
-const Layout = ({ children, utilisateur, panierCount = 0 }: LayoutProps) => {
-  return (
-    <>
-      <Header utilisateur={utilisateur} panierCount={panierCount} />
-      {children}
-    </>
-  );
-};
+// const Layout = ({ children, utilisateur, panierCount = 0 }: LayoutProps) => {
+//   return (
+//     <>
+//       <Header utilisateur={utilisateur} panierCount={panierCount} />
+//       {children}
+//     </>
+//   );
+// };
 
-export default Layout;
+// export default Layout;

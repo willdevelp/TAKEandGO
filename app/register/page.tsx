@@ -25,7 +25,7 @@ export default function InscriptionPage() {
     setIsLoading(true);
 
     if (formData.password !== formData.confirmPassword) {
-      alert("Les mots de passe ne correspondent pas");
+      alert("Die Passwörter stimmen nicht überein.");
       setIsLoading(false);
       return;
     }
@@ -40,7 +40,7 @@ export default function InscriptionPage() {
     });
     setIsLoading(false);
     if (!result.success) {
-      setError(typeof result.error === "string" ? result.error : "Vérifiez vos informations");
+      setError(typeof result.error === "string" ? result.error : "Bitte überprüfen Sie Ihre Angaben.");
       return;
     }
     setIsSuccess(true);
@@ -64,16 +64,16 @@ export default function InscriptionPage() {
             <CheckCircle className="h-10 w-10 text-green-600" />
           </div>
           <h2 className="text-2xl font-serif font-bold text-[#3C2A21] mb-3">
-            Inscription réussie !
+            Registrierung erfolgreich!
           </h2>
           <p className="text-gray-600 mb-6">
-            Bienvenue chez Také & Go. Vous allez être redirigé vers la page de connexion.
+            Willkommen bei Take & Go. Sie werden zur Anmeldeseite weitergeleitet.
           </p>
           <Link
             href="/connexion"
             className="inline-block bg-[#3C2A21] hover:bg-[#5C3B2A] text-white font-semibold px-6 py-3 rounded-xl transition"
           >
-            Se connecter
+            Anmelden
           </Link>
         </div>
       </div>
@@ -88,7 +88,7 @@ export default function InscriptionPage() {
           <div className="absolute inset-0 bg-[#3C2A21]/80 z-10"></div>
           <Image
             src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=2070"
-            alt="Café"
+            alt="Kaffee"
             fill
             className="object-cover"
           />
@@ -97,19 +97,19 @@ export default function InscriptionPage() {
               <span className="text-4xl">☕</span>
             </div>
             <h2 className="text-3xl font-serif font-bold mb-4">
-              Rejoignez notre communauté
+              Werden Sie Teil unserer Community
             </h2>
             <p className="text-white/80">
-              Créez votre compte et profitez d&apos;offres exclusives, de la fidélité et de commandes rapides.
+              Erstellen Sie Ihr Konto und profitieren Sie von exklusiven Angeboten, Treuevorteilen und schnellen Bestellungen.
             </p>
             <div className="mt-8 flex gap-4 text-sm">
               <span className="flex items-center gap-2">
                 <CheckCircle className="h-4 w-4 text-amber-400" />
-                Offres exclusives
+                Exklusive Angebote
               </span>
               <span className="flex items-center gap-2">
                 <CheckCircle className="h-4 w-4 text-amber-400" />
-                Programme fidélité
+                Treueprogramm
               </span>
             </div>
           </div>
@@ -119,10 +119,10 @@ export default function InscriptionPage() {
         <div className="md:w-1/2 p-8 md:p-12">
           <div className="text-center mb-8">
             <h1 className="text-3xl font-serif font-bold text-[#3C2A21]">
-              Créer un compte
+              Konto erstellen
             </h1>
             <p className="text-gray-500 mt-2">
-              Remplissez vos informations pour vous inscrire
+              Füllen Sie Ihre Angaben aus, um sich zu registrieren
             </p>
           </div>
           {error && <p className="mb-4 rounded-xl bg-red-50 px-4 py-3 text-sm text-red-700">{error}</p>}
@@ -130,7 +130,7 @@ export default function InscriptionPage() {
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                Nom complet
+                Vollständiger Name
               </label>
               <div className="relative">
                 <User className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
@@ -140,7 +140,7 @@ export default function InscriptionPage() {
                   value={formData.nom}
                   onChange={handleChange}
                   required
-                  placeholder="Jean Dupont"
+                  placeholder="Max Mustermann"
                   className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 focus:border-[#3C2A21] focus:ring-1 focus:ring-[#3C2A21] outline-none transition"
                 />
               </div>
@@ -148,7 +148,7 @@ export default function InscriptionPage() {
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                Email
+                E-Mail
               </label>
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
@@ -158,7 +158,7 @@ export default function InscriptionPage() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  placeholder="jean@exemple.fr"
+                  placeholder="max@beispiel.de"
                   className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 focus:border-[#3C2A21] focus:ring-1 focus:ring-[#3C2A21] outline-none transition"
                 />
               </div>
@@ -166,7 +166,7 @@ export default function InscriptionPage() {
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                Mot de passe
+                Passwort
               </label>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
@@ -191,7 +191,7 @@ export default function InscriptionPage() {
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                Confirmer le mot de passe
+                Passwort bestätigen
               </label>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
@@ -219,22 +219,22 @@ export default function InscriptionPage() {
               disabled={isLoading}
               className="w-full bg-[#3C2A21] hover:bg-[#5C3B2A] text-white font-semibold py-3 rounded-xl transition disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {isLoading ? "Inscription en cours..." : "S'inscrire"}
+              {isLoading ? "Registrierung läuft ..." : "Registrieren"}
             </button>
           </form>
 
           <div className="mt-6 text-center">
             <p className="text-gray-600">
-              Déjà un compte ?{" "}
+              Bereits ein Konto?{" "}
               <Link href="/connexion" className="text-[#D4A574] hover:underline font-semibold">
-                Se connecter
+                Anmelden
               </Link>
             </p>
           </div>
 
           <div className="mt-6 flex items-center gap-4">
             <div className="flex-1 h-px bg-gray-200"></div>
-            <span className="text-xs text-gray-400">ou</span>
+            <span className="text-xs text-gray-400">oder</span>
             <div className="flex-1 h-px bg-gray-200"></div>
           </div>
 

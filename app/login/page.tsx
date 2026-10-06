@@ -25,9 +25,9 @@ const labelClass =
   "mb-2 block text-[11px] font-bold uppercase tracking-[0.14em] text-[#3C2A21]/60";
 
 const perks = [
-  "Commandez en un clic",
-  "Suivez vos commandes en direct",
-  "Offres exclusives réservées aux membres",
+  "Mit einem Klick bestellen",
+  "Bestellungen live verfolgen",
+  "Exklusive Angebote für Mitglieder",
 ];
 
 export default function ConnexionPage() {
@@ -53,7 +53,7 @@ export default function ConnexionPage() {
     setIsLoading(false);
     if (!result.success) {
       setError(
-        typeof result.error === "string" ? result.error : "Vérifiez vos identifiants"
+        typeof result.error === "string" ? result.error : "Bitte überprüfen Sie Ihre Anmeldedaten"
       );
       return;
     }
@@ -101,7 +101,7 @@ export default function ConnexionPage() {
             <aside className="relative hidden overflow-hidden lg:block">
               <Image
                 src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?q=80&w=2070"
-                alt="Ambiance du café"
+                alt="Atmosphäre des Cafés"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 0px, 50vw"
@@ -132,7 +132,7 @@ export default function ConnexionPage() {
                       TAKE <span className="text-[#D4A574]">&</span> GO
                     </span>
                     <span className="mt-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-white/50">
-                      Café Parisien
+                      Schweizer Kaffee
                     </span>
                   </span>
                 </Link>
@@ -144,14 +144,14 @@ export default function ConnexionPage() {
                   </div>
 
                   <h2 className="mt-8 font-serif text-4xl font-bold leading-[1.05] tracking-tight">
-                    Bienvenue chez
+                    Willkommen bei
                     <br />
                     <span className="italic text-[#D4A574]">Take & Go.</span>
                   </h2>
 
                   <p className="mt-5 max-w-sm leading-relaxed text-white/70">
-                    Connectez-vous pour commander vos boissons préférées et profiter de
-                    nos offres exclusives.
+                    Melden Sie sich an, um Ihre Lieblingsgetränke zu bestellen und von
+                    unseren exklusiven Angeboten zu profitieren.
                   </p>
 
                   <ul className="mt-8 space-y-3">
@@ -175,7 +175,7 @@ export default function ConnexionPage() {
                 {/* Citation bas */}
                 <div className="mt-12 rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur">
                   <p className="font-serif text-sm italic leading-relaxed text-white/85">
-                    « Chaque tasse raconte une histoire — la vôtre commence ici. »
+                    „Jede Tasse erzählt eine Geschichte – Ihre beginnt hier.“
                   </p>
                 </div>
               </div>
@@ -199,8 +199,8 @@ export default function ConnexionPage() {
                     <span className="font-serif text-base font-bold tracking-tight">
                       TAKE <span className="text-[#B8865B]">&</span> GO
                     </span>
-                    <span className="mt-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#3C2A21]/45">
-                      Café Parisien
+                        <span className="mt-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#3C2A21]/45">
+                          Schweizer Kaffee
                     </span>
                   </span>
                 </Link>
@@ -211,18 +211,18 @@ export default function ConnexionPage() {
                 <div className="flex items-center gap-3">
                   <span className="h-px w-8 bg-[#B8865B]" />
                   <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#B8865B]">
-                    Connexion
+                    Anmeldung
                   </span>
                 </div>
 
                 <h1 className="mt-5 font-serif text-3xl font-bold leading-tight sm:text-4xl">
-                  Ravi de vous
+                  Schön, Sie
                   <br />
-                  <span className="italic text-[#B8865B]">revoir.</span>
+                  <span className="italic text-[#B8865B]">wiederzusehen.</span>
                 </h1>
 
                 <p className="mt-4 text-[#3C2A21]/60">
-                  Entrez vos identifiants pour accéder à votre compte.
+                  Geben Sie Ihre Anmeldedaten ein, um auf Ihr Konto zuzugreifen.
                 </p>
               </div>
 
@@ -242,7 +242,7 @@ export default function ConnexionPage() {
                 {/* Email */}
                 <div>
                   <label htmlFor="email" className={labelClass}>
-                    Adresse email
+                    E-Mail-Adresse
                   </label>
                   <div className="relative">
                     <Mail
@@ -257,7 +257,7 @@ export default function ConnexionPage() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      placeholder="jean@exemple.fr"
+                      placeholder="max@beispiel.de"
                       className={inputClass}
                     />
                   </div>
@@ -267,13 +267,13 @@ export default function ConnexionPage() {
                 <div>
                   <div className="flex items-center justify-between">
                     <label htmlFor="password" className={labelClass}>
-                      Mot de passe
+                      Passwort
                     </label>
                     <Link
                       href="/mot-de-passe-oublie"
                       className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#B8865B] transition-colors hover:text-[#3C2A21]"
                     >
-                      Oublié ?
+                      Passwort vergessen?
                     </Link>
                   </div>
                   <div className="relative">
@@ -296,7 +296,7 @@ export default function ConnexionPage() {
                       type="button"
                       onClick={() => setShowPassword((v) => !v)}
                       aria-label={
-                        showPassword ? "Masquer le mot de passe" : "Afficher le mot de passe"
+                        showPassword ? "Passwort verbergen" : "Passwort anzeigen"
                       }
                       className="absolute right-3 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full text-[#3C2A21]/40 transition-colors hover:bg-[#F0E6D2]/60 hover:text-[#3C2A21]"
                     >
@@ -323,7 +323,7 @@ export default function ConnexionPage() {
                     className="h-4 w-4 shrink-0 cursor-pointer rounded border-[#3C2A21]/30 accent-[#3C2A21]"
                   />
                   <span className="text-sm text-[#3C2A21]/70">
-                    Se souvenir de moi sur cet appareil
+                    Auf diesem Gerät angemeldet bleiben
                   </span>
                 </label>
 
@@ -336,22 +336,22 @@ export default function ConnexionPage() {
                   {isLoading ? (
                     <>
                       <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
-                      Connexion en cours…
+                      Anmeldung läuft …
                     </>
                   ) : (
                     <>
-                      Se connecter
+                      Anmelden
                       <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
                     </>
                   )}
                 </button>
               </form>
 
-              {/* Séparateur */}
+              {/* Trennlinie */}
               <div className="mt-7 flex items-center gap-4">
                 <div className="h-px flex-1 bg-[#3C2A21]/10" />
                 <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#3C2A21]/40">
-                  ou continuer avec
+                  oder fortfahren mit
                 </span>
                 <div className="h-px flex-1 bg-[#3C2A21]/10" />
               </div>
@@ -362,7 +362,7 @@ export default function ConnexionPage() {
                   type="button"
                   className="group flex items-center justify-center gap-2.5 rounded-2xl border border-[#3C2A21]/15 bg-white px-4 py-3.5 text-sm font-semibold text-[#3C2A21] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#3C2A21] hover:bg-[#FBF9F6] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4A574]"
                 >
-                  {/* Logo Google officiel (SVG inline) */}
+                  {/* Google-Logo (Inline-SVG) */}
                   <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">
                     <path
                       fill="#4285F4"
@@ -395,39 +395,39 @@ export default function ConnexionPage() {
                 </button>
               </div>
 
-              {/* Inscription */}
+              {/* Registrierung */}
               <p className="mt-8 text-center text-sm text-[#3C2A21]/60">
-                Pas encore de compte ?{" "}
+                Noch kein Konto?{" "}
                 <Link
                   href="/inscription"
                   className="font-semibold text-[#B8865B] underline-offset-4 transition-colors hover:text-[#3C2A21] hover:underline"
                 >
-                  Créer un compte
+                  Konto erstellen
                 </Link>
               </p>
 
-              {/* Réassurance */}
+              {/* Sicherheitshinweise */}
               <div className="mt-6 flex items-center justify-center gap-3 text-[11px] text-[#3C2A21]/45">
                 <span className="flex items-center gap-1">
                   <ShieldCheck className="h-3 w-3" />
-                  Connexion sécurisée
+                  Sichere Anmeldung
                 </span>
                 <span className="h-3 w-px bg-[#3C2A21]/15" />
                 <span className="flex items-center gap-1">
                   <Sparkles className="h-3 w-3 text-[#B8865B]" />
-                  Données protégées
+                  Geschützte Daten
                 </span>
               </div>
             </section>
           </div>
 
-          {/* Lien retour discret */}
+          {/* Zurück-Link */}
           <p className="mt-8 text-center text-sm text-[#3C2A21]/50">
             <Link
               href="/"
               className="transition-colors hover:text-[#3C2A21]"
             >
-              ← Retour à l&apos;accueil
+              ← Zurück zur Startseite
             </Link>
           </p>
         </div>

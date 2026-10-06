@@ -32,69 +32,70 @@ type ApiProduct = {
 const fallbackProducts: Product[] = [
   {
     id: 1,
-    nom: "Espresso Classique",
+    nom: "Klassischer Espresso",
     image: "/caffee.jpg",
-    description: "Un espresso intense et corsé",
+    description: "Ein kräftiger, vollmundiger Espresso",
     prix: 3.5,
-    categorie: "Chaudes",
+    categorie: "Heißgetränke",
     populaire: true,
   },
   {
     id: 2,
-    nom: "Latte Macchiato",
+    nom: "Latte macchiato",
     image: "/creme.jpg",
-    description: "Lait vapeur, espresso et mousse crémeuse",
+    description: "Gedämpfte Milch, Espresso und cremiger Milchschaum",
     prix: 4.5,
-    categorie: "Chaudes",
+    categorie: "Heißgetränke",
     populaire: true,
   },
   {
     id: 3,
-    nom: "Smoothie Tropical",
+    nom: "Tropischer Smoothie",
     image: "/capuccino.jpg",
-    description: "Mangue, ananas et fruits de la passion",
+    description: "Mango, Ananas und Passionsfrucht",
     prix: 5.5,
-    categorie: "Sans alcool",
+    categorie: "Alkoholfrei",
     populaire: true,
   },
   {
     id: 4,
     nom: "Cappuccino",
     image: "/capuccino.jpg",
-    description: "Espresso, lait vapeur et mousse onctueuse",
+    description: "Espresso, heiße Milch und cremiger Milchschaum",
     prix: 4.2,
-    categorie: "Chaudes",
+    categorie: "Heißgetränke",
     populaire: false,
   },
   {
     id: 5,
-    nom: "Chocolat Chaud",
+    nom: "Heiße Schokolade",
     image: "/creme.jpg",
-    description: "Chocolat belge fondant et crème fouettée",
+    description: "Zartschmelzende belgische Schokolade mit Schlagsahne",
     prix: 4.8,
-    categorie: "Chaudes",
+    categorie: "Heißgetränke",
     populaire: false,
   },
   {
     id: 6,
-    nom: "Thé Vert Sencha",
+    nom: "Grüner Sencha-Tee",
     image: "/caffee.jpg",
-    description: "Thé vert japonais délicat et rafraîchissant",
+    description: "Feiner und erfrischender japanischer Grüntee",
     prix: 3.9,
-    categorie: "Chaudes",
+    categorie: "Heißgetränke",
     populaire: false,
   },
 ];
 
 // Pour passer en Fcfa : `${Math.round(n).toLocaleString("fr-FR")} Fcfa`
-const formatPrice = (n: number) => `${n.toFixed(2).replace(".", ",")} €`;
+const formatPrice = (n: number) =>
+  new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" }).format(n);
 
 // Recherche insensible aux accents et à la casse
 const normalize = (s: string) =>
   s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
 export default function CartePage() {
-  const [active, setActive] = useState("Tous");
+  const [active, setActive] = useState("Alle");
   const [query, setQuery] = useState("");
   const [produits, setProduits] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
@@ -106,20 +107,20 @@ export default function CartePage() {
     void listProductsAction().then((result) => {
       setLoading(false);
       if (!result.success) {
-        setError(result.error);
+        setError("Die Produkte konnten nicht geladen werden.");
         setProduits(fallbackProducts);
         return;
       }
       setProduits(
         result.data.map((product: ApiProduct) => ({
           id: Number(product.id ?? 0),
-          nom: String(product.nom ?? "Produit sans nom"),
+          nom: String(product.nom ?? "Produkt ohne Namen"),
           image: String(product.image ?? "/caffee.jpg"),
           description: String(
-            product.description ?? "Préparé avec soin dans notre café"
+            product.description ?? "Mit Sorgfalt in unserem Café zubereitet"
           ),
           prix: Number(product.prix ?? 0),
-          categorie: String(product.categorie_nom ?? product.categorie_id ?? "Autres"),
+          categorie: String(product.categorie_nom ?? product.categorie_id ?? "Sonstiges"),
           populaire: Boolean(product.populaire),
         }))
       );
@@ -133,14 +134,14 @@ export default function CartePage() {
     return map;
   }, [produits]);
 
-  const categories = useMemo(() => ["Tous", ...Array.from(counts.keys())], [counts]);
+  const categories = useMemo(() => ["Alle", ...Array.from(counts.keys())], [counts]);
 
   // Filtre catégorie + recherche
   const filtered = useMemo(() => {
     const q = normalize(query.trim());
     return produits.filter(
       (p) =>
-        (active === "Tous" || p.categorie === active) &&
+        (active === "Alle" || p.categorie === active) &&
         (q === "" || normalize(`${p.nom} ${p.description}`).includes(q))
     );
   }, [produits, active, query]);
@@ -157,7 +158,7 @@ export default function CartePage() {
   };
 
   const resetFilters = () => {
-    setActive("Tous");
+    setActive("Alle");
     setQuery("");
   };
 
@@ -191,20 +192,20 @@ export default function CartePage() {
           <div className="reveal flex items-center justify-center gap-3">
             <span className="h-px w-10 bg-[#B8865B]" />
             <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#B8865B]">
-              Notre carte
+              Unsere Speisekarte
             </span>
             <span className="h-px w-10 bg-[#B8865B]" />
           </div>
 
           <h1 className="reveal d-1 mt-6 font-serif text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
-            Des saveurs préparées
+            Mit Leidenschaft
             <br />
-            <span className="italic text-[#B8865B]">avec passion.</span>
+            <span className="italic text-[#B8865B]">zubereitete Köstlichkeiten.</span>
           </h1>
 
           <p className="reveal d-2 mx-auto mt-6 max-w-xl text-lg leading-relaxed text-[#3C2A21]/65">
-            Cafés de spécialité, thés raffinés et douceurs gourmandes — découvrez nos
-            incontournables, préparés à la commande.
+            Spezialitätenkaffee, feine Tees und süße Köstlichkeiten – entdecken Sie unsere
+            Highlights, frisch auf Bestellung zubereitet.
           </p>
 
           {/* Recherche */}
@@ -217,8 +218,8 @@ export default function CartePage() {
               type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Rechercher un café, un thé, une pâtisserie…"
-              aria-label="Rechercher un produit"
+              placeholder="Kaffee, Tee oder Gebäck suchen …"
+              aria-label="Produkt suchen"
               className="w-full rounded-full border border-[#3C2A21]/12 bg-white/90 py-4 pl-12 pr-5 text-sm text-[#3C2A21] shadow-[0_10px_30px_-15px_rgba(60,42,33,0.35)] backdrop-blur placeholder:text-[#3C2A21]/40 outline-none transition-all duration-200 focus:border-[#B8865B] focus:bg-white focus:ring-4 focus:ring-[#B8865B]/15"
             />
           </div>
@@ -226,9 +227,9 @@ export default function CartePage() {
           {/* Stats */}
           <dl className="reveal d-4 mx-auto mt-12 grid max-w-2xl grid-cols-3 gap-x-6 gap-y-5 border-t border-[#3C2A21]/10 pt-8">
             {[
-              { label: "Produits", value: loading ? "—" : String(produits.length) },
-              { label: "Catégories", value: loading ? "—" : String(categories.length - 1) },
-              { label: "Note clients", value: "4,9 / 5" },
+              { label: "Produkte", value: loading ? "—" : String(produits.length) },
+              { label: "Kategorien", value: loading ? "—" : String(categories.length - 1) },
+              { label: "Kundenbewertung", value: "4,9 / 5" },
             ].map((s) => (
               <div key={s.label} className="text-center">
                 <dt className="text-[11px] font-semibold uppercase tracking-wider text-[#3C2A21]/45">
@@ -249,7 +250,7 @@ export default function CartePage() {
           <div className="flex justify-start gap-2 overflow-x-auto py-4 [scrollbar-width:none] md:justify-center [&::-webkit-scrollbar]:hidden">
             {categories.map((cat) => {
               const isActive = active === cat;
-              const count = cat === "Tous" ? produits.length : counts.get(cat) ?? 0;
+              const count = cat === "Alle" ? produits.length : counts.get(cat) ?? 0;
               return (
                 <button
                   key={cat}
@@ -285,7 +286,7 @@ export default function CartePage() {
             role="alert"
             className="mb-10 rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700"
           >
-            {error} — Affichage des produits de démonstration.
+            {error} — Demo-Produkte werden angezeigt.
           </p>
         )}
 
@@ -298,14 +299,15 @@ export default function CartePage() {
             {query.trim() !== "" && (
               <p className="mb-10 text-sm text-[#3C2A21]/55" aria-live="polite">
                 <span className="font-semibold text-[#3C2A21]">{filtered.length}</span>{" "}
-                résultat{filtered.length > 1 ? "s" : ""} pour «&nbsp;{query.trim()}&nbsp;»
+                {filtered.length === 1 ? " Ergebnis für " : " Ergebnisse für "}
+                „&nbsp;{query.trim()}&nbsp;“
               </p>
             )}
 
             <div className="space-y-20 md:space-y-24">
               {grouped.map(([categorie, items]) => (
                 <section key={categorie}>
-                  {active === "Tous" && (
+                  {active === "Alle" && (
                     <div className="mb-8 flex items-end justify-between gap-4 border-b border-[#3C2A21]/10 pb-5">
                       <div className="flex items-center gap-4">
                         <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#F0E6D2]">
@@ -318,7 +320,7 @@ export default function CartePage() {
                             {categorie}
                           </h2>
                           <p className="text-xs font-medium uppercase tracking-wider text-[#3C2A21]/45">
-                            {items.length} produit{items.length > 1 ? "s" : ""}
+                            {items.length} {items.length === 1 ? "Produkt" : "Produkte"}
                           </p>
                         </div>
                       </div>
@@ -329,7 +331,7 @@ export default function CartePage() {
                         }}
                         className="group hidden shrink-0 items-center gap-1.5 text-sm font-semibold text-[#B8865B] transition-colors hover:text-[#3C2A21] sm:inline-flex"
                       >
-                        Voir tout
+                        Alle ansehen
                         <span className="transition-transform duration-300 group-hover:translate-x-0.5">
                           →
                         </span>
@@ -382,7 +384,7 @@ function ProductCard({ item, onAdd }: { item: Product; onAdd: () => void }) {
         {item.populaire && (
           <span className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-[#3C2A21] shadow-[0_6px_18px_-8px_rgba(60,42,33,0.5)] backdrop-blur">
             <FaStar className="h-2.5 w-2.5 text-[#D4A574]" />
-            Populaire
+            Beliebt
           </span>
         )}
       </div>
@@ -404,7 +406,7 @@ function ProductCard({ item, onAdd }: { item: Product; onAdd: () => void }) {
               onAdd();
               setAdded(true);
             }}
-            aria-label={`Ajouter ${item.nom} au panier`}
+            aria-label={`${item.nom} in den Warenkorb legen`}
             className={`inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-sm font-semibold shadow-sm transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4A574] ${
               added
                 ? "bg-[#D4A574] text-[#3C2A21]"
@@ -412,7 +414,7 @@ function ProductCard({ item, onAdd }: { item: Product; onAdd: () => void }) {
             }`}
           >
             {added ? <FaCheck className="h-3 w-3" /> : <FaPlus className="h-3 w-3" />}
-            {added ? "Ajouté" : "Ajouter"}
+            {added ? "Hinzugefügt" : "Hinzufügen"}
           </button>
         </div>
       </div>
@@ -427,15 +429,15 @@ function EmptyState({ onReset }: { onReset: () => void }) {
       <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-3xl bg-[#F0E6D2]">
         <FaSearch className="h-7 w-7 text-[#3C2A21]/50" />
       </div>
-      <h2 className="mt-6 font-serif text-2xl font-bold">Aucun produit trouvé</h2>
+      <h2 className="mt-6 font-serif text-2xl font-bold">Keine Produkte gefunden</h2>
       <p className="mt-2 text-[#3C2A21]/55">
-        Essayez un autre mot-clé ou explorez une autre catégorie.
+        Verwenden Sie einen anderen Suchbegriff oder wählen Sie eine andere Kategorie.
       </p>
       <button
         onClick={onReset}
         className="mt-7 inline-flex items-center gap-2 rounded-full bg-[#3C2A21] px-6 py-3 text-sm font-semibold text-white shadow-[0_14px_30px_-12px_rgba(60,42,33,0.7)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#2A1D16] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4A574]"
       >
-        Voir toute la carte
+        Gesamte Speisekarte anzeigen
       </button>
     </div>
   );
@@ -447,7 +449,7 @@ function SkeletonGrid() {
     <div
       className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
       aria-busy="true"
-      aria-label="Chargement de la carte"
+      aria-label="Speisekarte wird geladen"
     >
       {Array.from({ length: 8 }).map((_, i) => (
         <div

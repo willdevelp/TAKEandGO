@@ -22,7 +22,8 @@ interface SideCartProps {
   onClose: () => void;
 }
 
-const formatPrice = (n: number) => `${n.toFixed(2).replace(".", ",")} €`;
+const formatPrice = (n: number) =>
+  new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" }).format(n);
 
 export default function SideCart({ isOpen, onClose }: SideCartProps) {
   const { cart, updateQuantity, removeFromCart, clearCart, subtotal, totalItems } =
@@ -72,7 +73,7 @@ export default function SideCart({ isOpen, onClose }: SideCartProps) {
       <aside
         role="dialog"
         aria-modal="true"
-        aria-label="Panier"
+        aria-label="Warenkorb"
         className={`fixed right-0 top-0 z-50 flex h-full w-full flex-col bg-[#FDFBF8] shadow-[0_30px_80px_-30px_rgba(60,42,33,0.7)] transition-transform duration-300 ease-[cubic-bezier(.22,1,.36,1)] sm:w-[440px] ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
@@ -89,18 +90,18 @@ export default function SideCart({ isOpen, onClose }: SideCartProps) {
                 <ShoppingBag className="h-4.5 w-4.5 text-[#D4A574]" strokeWidth={1.8} />
               </span>
               <div>
-                <h2 className="font-serif text-lg font-bold leading-tight">Mon panier</h2>
+                <h2 className="font-serif text-lg font-bold leading-tight">Mein Warenkorb</h2>
                 <p className="text-[11px] font-medium uppercase tracking-wider text-white/50">
                   {totalItems === 0
-                    ? "Aucun article"
-                    : `${totalItems} article${totalItems > 1 ? "s" : ""}`}
+                    ? "Keine Artikel"
+                    : `${totalItems} Artikel`}
                 </p>
               </div>
             </div>
 
             <button
               onClick={onClose}
-              aria-label="Fermer le panier"
+              aria-label="Warenkorb schließen"
               className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 transition-all duration-300 hover:-translate-y-0.5 hover:border-[#D4A574] hover:bg-[#D4A574] hover:text-[#3C2A21] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
               <X className="h-4 w-4" strokeWidth={2} />
@@ -122,10 +123,10 @@ export default function SideCart({ isOpen, onClose }: SideCartProps) {
               </div>
 
               <h3 className="mt-8 font-serif text-2xl font-bold leading-tight">
-                Votre panier est <span className="italic text-[#B8865B]">vide</span>
+                Ihr Warenkorb ist <span className="italic text-[#B8865B]">leer</span>
               </h3>
               <p className="mt-3 max-w-xs text-sm leading-relaxed text-[#3C2A21]/55">
-                Ajoutez vos boissons préférées depuis la carte pour les retrouver ici.
+                Fügen Sie Ihre Lieblingsgetränke aus der Speisekarte hinzu, um sie hier zu sehen.
               </p>
 
               <Link
@@ -133,13 +134,13 @@ export default function SideCart({ isOpen, onClose }: SideCartProps) {
                 onClick={onClose}
                 className="group mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-[#3C2A21] px-6 py-3.5 text-sm font-semibold text-white shadow-[0_14px_30px_-12px_rgba(60,42,33,0.7)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#2A1D16] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4A574]"
               >
-                Découvrir la carte
+                Speisekarte entdecken
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
               </Link>
 
               <p className="mt-8 flex items-center gap-1.5 text-xs text-[#3C2A21]/45">
                 <Sparkles className="h-3.5 w-3.5 text-[#B8865B]" />
-                Torréfaction maison, préparée à la commande
+                Hausgeröstet und frisch auf Bestellung zubereitet
               </p>
             </div>
           ) : (
@@ -169,7 +170,7 @@ export default function SideCart({ isOpen, onClose }: SideCartProps) {
                       </h4>
                       <button
                         onClick={() => removeFromCart(item.coffee.id)}
-                        aria-label={`Retirer ${item.coffee.nom}`}
+                        aria-label={`${item.coffee.nom} entfernen`}
                         className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-[#3C2A21]/35 transition-colors hover:bg-red-50 hover:text-red-500"
                       >
                         <Trash2 className="h-3.5 w-3.5" />
@@ -181,7 +182,7 @@ export default function SideCart({ isOpen, onClose }: SideCartProps) {
                     </p>
 
                     <p className="mt-1.5 text-xs font-semibold tabular-nums text-[#B8865B]">
-                      {formatPrice(item.coffee.prix)} l&apos;unité
+                      {formatPrice(item.coffee.prix)} pro Stück
                     </p>
 
                     {/* Quantité + Total ligne */}
@@ -191,7 +192,7 @@ export default function SideCart({ isOpen, onClose }: SideCartProps) {
                           onClick={() =>
                             updateQuantity(item.coffee.id, item.quantity - 1)
                           }
-                          aria-label="Diminuer la quantité"
+                          aria-label="Menge verringern"
                           className="flex h-8 w-8 items-center justify-center text-[#3C2A21]/60 transition-colors hover:bg-[#F0E6D2]/60 hover:text-[#3C2A21]"
                         >
                           <Minus className="h-3 w-3" />
@@ -203,7 +204,7 @@ export default function SideCart({ isOpen, onClose }: SideCartProps) {
                           onClick={() =>
                             updateQuantity(item.coffee.id, item.quantity + 1)
                           }
-                          aria-label="Augmenter la quantité"
+                          aria-label="Menge erhöhen"
                           className="flex h-8 w-8 items-center justify-center text-[#3C2A21]/60 transition-colors hover:bg-[#F0E6D2]/60 hover:text-[#3C2A21]"
                         >
                           <Plus className="h-3 w-3" />
@@ -226,7 +227,7 @@ export default function SideCart({ isOpen, onClose }: SideCartProps) {
                     className="inline-flex items-center gap-1.5 text-sm font-semibold text-red-500 transition-colors hover:text-red-700"
                   >
                     <Trash2 className="h-3.5 w-3.5" />
-                    Vider le panier
+                    Warenkorb leeren
                   </button>
                 </li>
               )}
@@ -240,24 +241,24 @@ export default function SideCart({ isOpen, onClose }: SideCartProps) {
             <div className="space-y-2.5 px-6 py-5 text-sm">
               <div className="flex justify-between">
                 <span className="text-[#3C2A21]/60">
-                  Sous-total ({totalItems})
+                  Zwischensumme ({totalItems})
                 </span>
                 <span className="font-semibold tabular-nums">
                   {formatPrice(subtotal)}
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-[#3C2A21]/60">Taxes (7%)</span>
+                <span className="text-[#3C2A21]/60">Steuern (7 %)</span>
                 <span className="font-semibold tabular-nums">{formatPrice(tax)}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-[#3C2A21]/60">Livraison</span>
-                <span className="font-semibold text-green-600">Offerte</span>
+                <span className="text-[#3C2A21]/60">Lieferung</span>
+                <span className="font-semibold text-green-600">Kostenlos</span>
               </div>
 
               <div className="border-t border-dashed border-[#3C2A21]/15 pt-3">
                 <div className="flex items-end justify-between">
-                  <span className="font-serif text-base font-bold">Total</span>
+                  <span className="font-serif text-base font-bold">Gesamt</span>
                   <span className="font-serif text-xl font-bold tabular-nums">
                     {formatPrice(total)}
                   </span>
@@ -272,7 +273,7 @@ export default function SideCart({ isOpen, onClose }: SideCartProps) {
                 onClick={onClose}
                 className="group flex w-full items-center justify-center gap-2 rounded-2xl bg-[#3C2A21] px-6 py-4 font-semibold text-white shadow-[0_16px_34px_-16px_rgba(60,42,33,0.8)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#2A1D16] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4A574]"
               >
-                Passer la commande
+                Zur Kasse
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
               </Link>
 
@@ -281,18 +282,18 @@ export default function SideCart({ isOpen, onClose }: SideCartProps) {
                 onClick={onClose}
                 className="block text-center text-sm font-semibold text-[#B8865B] transition-colors hover:text-[#3C2A21]"
               >
-                Voir le panier complet
+                Warenkorb ansehen
               </Link>
 
               <div className="flex items-center justify-center gap-3 pt-1 text-[11px] text-[#3C2A21]/45">
                 <span className="flex items-center gap-1">
                   <ShieldCheck className="h-3 w-3" />
-                  Paiement sécurisé
+                  Sichere Zahlung
                 </span>
                 <span className="h-3 w-px bg-[#3C2A21]/15" />
                 <span className="flex items-center gap-1">
                   <CheckCircle2 className="h-3 w-3 text-green-600" />
-                  Annulation gratuite
+                  Kostenlose Stornierung
                 </span>
               </div>
             </div>

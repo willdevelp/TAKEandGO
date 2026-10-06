@@ -7,7 +7,7 @@ export async function listOrdersAction() {
   try {
     return { success: true as const, data: await listOrders() };
   } catch {
-    return { success: false as const, error: "Impossible de charger les commandes" };
+    return { success: false as const, error: "Die Bestellungen konnten nicht geladen werden." };
   }
 }
 
@@ -18,7 +18,7 @@ export async function createOrderAction(input: unknown) {
   try {
     return { success: true as const, data: await createOrder(parsed.data) };
   } catch {
-    return { success: false as const, error: "Impossible de créer la commande" };
+    return { success: false as const, error: "Die Bestellung konnte nicht erstellt werden." };
   }
 }
 
@@ -32,6 +32,6 @@ export async function updateOrderStatusAction(input: unknown) {
       data: await updateOrderStatus(parsed.data.id, parsed.data.statut),
     };
   } catch {
-    return { success: false as const, error: "Impossible de modifier la commande" };
+    return { success: false as const, error: "Die Bestellung konnte nicht aktualisiert werden." };
   }
 }

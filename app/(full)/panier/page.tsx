@@ -8,6 +8,9 @@ import { Trash2, Plus, Minus, ArrowLeft, ShoppingBag } from "lucide-react";
 import { useCart } from "../context/Cartcontext";
 import { createOrderAction } from "@/lib/actions/orders";
 
+const formatPrice = (amount: number) =>
+  new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" }).format(amount);
+
 export default function PanierPage() {
   const { cart, updateQuantity, removeFromCart, clearCart, subtotal, totalItems } =
     useCart();
@@ -39,7 +42,7 @@ export default function PanierPage() {
         setError(
           typeof result.error === "string"
             ? result.error
-            : "Vérifiez les informations de votre commande.",
+            : "Bitte überprüfen Sie Ihre Bestellangaben.",
         );
         return;
       }
@@ -47,7 +50,7 @@ export default function PanierPage() {
       setCompletedOrderId(String(result.data.id));
       clearCart();
     } catch {
-      setError("Une erreur est survenue lors de la création de la commande.");
+      setError("Beim Erstellen der Bestellung ist ein Fehler aufgetreten.");
     } finally {
       setIsSubmitting(false);
     }
@@ -60,20 +63,20 @@ export default function PanierPage() {
           <>
             <ShoppingBag className="mb-6 h-24 w-24 text-green-600" />
             <h1 className="mb-3 text-center text-3xl font-serif font-bold text-[#3C2A21]">
-              Commande confirmée
+              Bestellung bestätigt
             </h1>
             <p role="status" className="mb-2 text-center text-gray-600">
-              Votre commande n° {completedOrderId} a bien été enregistrée.
+              Ihre Bestellung Nr. {completedOrderId} wurde erfolgreich aufgenommen.
             </p>
           </>
         ) : (
           <>
             <ShoppingBag className="mb-6 h-24 w-24 text-[#3C2A21]/30" />
             <h1 className="mb-3 text-3xl font-serif font-bold text-[#3C2A21]">
-              Votre panier est vide
+              Ihr Warenkorb ist leer
             </h1>
             <p className="mb-8 text-gray-500">
-              Découvrez notre carte et ajoutez vos boissons préférées
+              Entdecken Sie unsere Speisekarte und legen Sie Ihre Lieblingsgetränke in den Warenkorb.
             </p>
           </>
         )}
@@ -82,7 +85,7 @@ export default function PanierPage() {
           className="bg-[#3C2A21] hover:bg-[#5C3B2A] text-white px-8 py-3 rounded-full font-semibold transition flex items-center gap-2"
         >
           <ArrowLeft className="h-5 w-5" />
-          Retour à la carte
+          Zurück zur Speisekarte
         </Link>
       </div>
     );
@@ -93,9 +96,9 @@ export default function PanierPage() {
       <div className="max-w-6xl mx-auto">
         <div className="flex items-center justify-between mb-8">
           <h1 className="text-3xl font-serif font-bold text-[#3C2A21]">
-            Mon panier
+            Mein Warenkorb
           </h1>
-          <div className="text-sm text-gray-500">{totalItems} article(s)</div>
+          <div className="text-sm text-gray-500">{totalItems} Artikel</div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -121,7 +124,7 @@ export default function PanierPage() {
                     {item.coffee.description}
                   </p>
                   <p className="text-lg font-bold text-[#D4A574] mt-1">
-                    {item.coffee.prix.toFixed(2)} €
+                    {formatPrice(item.coffee.prix)}
                   </p>
                 </div>
                 <div className="flex items-center gap-3 mt-4 sm:mt-0">
@@ -130,6 +133,7 @@ export default function PanierPage() {
                       onClick={() =>
                         updateQuantity(item.coffee.id, item.quantity - 1)
                       }
+                      aria-label="Menge verringern"
                       className="px-3 py-2 hover:bg-gray-50 transition"
                     >
                       <Minus className="h-4 w-4 text-gray-600" />
@@ -141,6 +145,7 @@ export default function PanierPage() {
                       onClick={() =>
                         updateQuantity(item.coffee.id, item.quantity + 1)
                       }
+                      aria-label="Menge erhöhen"
                       className="px-3 py-2 hover:bg-gray-50 transition"
                     >
                       <Plus className="h-4 w-4 text-gray-600" />
@@ -148,6 +153,7 @@ export default function PanierPage() {
                   </div>
                   <button
                     onClick={() => removeFromCart(item.coffee.id)}
+                    aria-label={`${item.coffee.nom} entfernen`}
                     className="p-2 text-red-500 hover:bg-red-50 rounded-lg transition"
                   >
                     <Trash2 className="h-5 w-5" />
@@ -160,7 +166,7 @@ export default function PanierPage() {
               onClick={clearCart}
               className="text-sm text-red-500 hover:text-red-700 transition font-medium"
             >
-              Vider le panier
+              Warenkorb leeren
             </button>
           </div>
 
@@ -168,21 +174,21 @@ export default function PanierPage() {
           <div className="lg:col-span-1">
             <div className="bg-white rounded-2xl shadow-sm p-6 sticky top-24">
               <h2 className="text-xl font-serif font-bold text-[#3C2A21] mb-6">
-                Résumé de la commande
+                Bestellübersicht
               </h2>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Sous-total</span>
-                  <span className="font-medium">{subtotal.toFixed(2)} €</span>
+                  <span className="text-gray-600">Zwischensumme</span>
+                  <span className="font-medium">{formatPrice(subtotal)}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Taxes (7%)</span>
-                  <span className="font-medium">{tax.toFixed(2)} €</span>
+                  <span className="text-gray-600">Steuern (7 %)</span>
+                  <span className="font-medium">{formatPrice(tax)}</span>
                 </div>
                 <div className="border-t border-gray-200 pt-3 mt-3">
                   <div className="flex justify-between text-lg font-bold">
-                    <span>Total</span>
-                    <span className="text-[#3C2A21]">{total.toFixed(2)} €</span>
+                    <span>Gesamt</span>
+                    <span className="text-[#3C2A21]">{formatPrice(total)}</span>
                   </div>
                 </div>
               </div>
@@ -193,7 +199,7 @@ export default function PanierPage() {
                     htmlFor="customer-name"
                     className="mb-1 block text-sm font-medium text-gray-700"
                   >
-                    Nom *
+                    Name *
                   </label>
                   <input
                     id="customer-name"
@@ -212,7 +218,7 @@ export default function PanierPage() {
                     htmlFor="customer-phone"
                     className="mb-1 block text-sm font-medium text-gray-700"
                   >
-                    Téléphone (facultatif)
+                    Telefonnummer (optional)
                   </label>
                   <input
                     id="customer-phone"
@@ -235,7 +241,7 @@ export default function PanierPage() {
                   disabled={isSubmitting}
                   className="w-full rounded-xl bg-[#3C2A21] py-3 font-semibold text-white transition hover:bg-[#5C3B2A] disabled:cursor-not-allowed disabled:opacity-60"
                 >
-                  {isSubmitting ? "Création en cours..." : "Passer la commande"}
+                  {isSubmitting ? "Bestellung wird erstellt ..." : "Jetzt bestellen"}
                 </button>
               </form>
 
@@ -244,7 +250,7 @@ export default function PanierPage() {
                 className="block text-center mt-4 text-sm text-[#D4A574] hover:underline"
               >
                 <ArrowLeft className="inline h-4 w-4 mr-1" />
-                Continuer mes achats
+                Weiter einkaufen
               </Link>
             </div>
           </div>

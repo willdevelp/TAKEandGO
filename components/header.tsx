@@ -26,7 +26,7 @@
 //           <Link href="/" className="flex items-center space-x-2">
 //             <Image 
 //               src="/take.jpg" 
-//               alt="Le Café Parisien Logo"
+//               alt="TAKE & GO Logo"
 //               width={40}
 //               height={40}
 //               className='rounded-full'
@@ -132,10 +132,10 @@ import { useCart } from "@/app/(full)/context/Cartcontext";
 // import { useCart } from "@/context/Cartcontext";
 
 const NAV_LINKS = [
-  { href: "/", label: "Accueil" },
-  { href: "/carte", label: "Notre Carte" },
-  { href: "/a-propos", label: "À Propos" },
-  { href: "/contact", label: "Contact" },
+  { href: "/", label: "Startseite" },
+  { href: "/carte", label: "Speisekarte" },
+  { href: "/a-propos", label: "Über uns" },
+  { href: "/contact", label: "Kontakt" },
 ];
 
 export default function Header() {
@@ -194,7 +194,7 @@ export default function Header() {
                   TAKE <span className="text-[#B8865B]">&</span> GO
                 </span>
                 <span className="mt-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#3C2A21]/45">
-                  Café Parisien
+                  Schweizer Kaffee
                 </span>
               </span>
             </Link>
@@ -233,7 +233,7 @@ export default function Header() {
               {/* Panier */}
               <Link
                 href="/panier"
-                aria-label={`Panier (${totalItems} article${totalItems > 1 ? "s" : ""})`}
+                aria-label={`Warenkorb (${totalItems} Artikel)`}
                 className="group relative flex h-11 w-11 items-center justify-center rounded-full border border-[#3C2A21]/12 bg-white text-[#3C2A21] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#3C2A21] hover:bg-[#3C2A21] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4A574]"
               >
                 <FaShoppingCart className="h-4 w-4" />
@@ -249,7 +249,7 @@ export default function Header() {
                 href="/carte"
                 className="group hidden items-center gap-2 rounded-full bg-[#3C2A21] px-5 py-3 text-sm font-semibold text-white shadow-[0_12px_26px_-14px_rgba(60,42,33,0.85)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#2A1D16] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4A574] lg:inline-flex"
               >
-                Commander
+                Bestellen
                 <FaArrowRight className="h-3 w-3 transition-transform duration-300 group-hover:translate-x-0.5" />
               </Link>
 
@@ -258,7 +258,7 @@ export default function Header() {
                 type="button"
                 onClick={() => setMenuOpen((v) => !v)}
                 aria-expanded={menuOpen}
-                aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+                aria-label={menuOpen ? "Menü schließen" : "Menü öffnen"}
                 className="flex h-11 w-11 items-center justify-center rounded-full border border-[#3C2A21]/12 bg-white text-[#3C2A21] transition-colors hover:bg-[#F0E6D2] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4A574] md:hidden"
               >
                 {menuOpen ? <FaTimes className="h-4 w-4" /> : <FaBars className="h-4 w-4" />}
@@ -317,7 +317,7 @@ export default function Header() {
               href="/carte"
               className="flex items-center justify-center gap-2 rounded-2xl bg-[#3C2A21] px-5 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#2A1D16]"
             >
-              Commander maintenant
+              Jetzt bestellen
               <FaArrowRight className="h-3 w-3" />
             </Link>
           </div>

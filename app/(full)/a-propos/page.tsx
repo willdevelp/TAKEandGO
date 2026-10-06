@@ -1,267 +1,4 @@
-  // import Head from 'next/head';
-  // import { 
-  //   FaCoffee, 
-  // FaHeart, 
-  // FaAward, 
-  // FaUsers, 
-  //   FaLeaf
-  // } from 'react-icons/fa';
-
-  // const valeurs = [
-  //   {
-  //     icon: <FaLeaf className="text-2xl" />,
-  //     title: "Durabilité",
-  //     description: "Nous nous engageons à utiliser des produits locaux et durables dans toutes nos préparations."
-  //   },
-  //   {
-  //     icon: <FaAward className="text-2xl" />,
-  //     title: "Excellence",
-  //     description: "La recherche de la perfection dans chaque détail, de la sélection des grains à la présentation."
-  //   },
-  //   {
-  //     icon: <FaHeart className="text-2xl" />,
-  //     title: "Passion",
-  //     description: "Notre amour pour le café se ressent dans chaque boisson que nous créons avec soin."
-  //   },
-  //   {
-  //     icon: <FaUsers className="text-2xl" />,
-  //     title: "Communauté",
-  //     description: "Créer un espace chaleureux où chacun se sent comme à la maison."
-  //   }
-  // ];
-  // export default function APropos() {
-
-  //   const equipe = [
-  //     {
-  //       nom: "Sophie Martin",
-  //       role: "Fondatrice & Barista Chef",
-  //       image: "/team/sophie.jpg",
-  //       description: "15 ans d'expérience dans l'art du café"
-  //     },
-  //     {
-  //       nom: "Thomas Lefebvre",
-  //       role: "Maître Torréfacteur",
-  //       image: "/team/thomas.jpg",
-  //       description: "Spécialiste des blends maison"
-  //     },
-  //     {
-  //       nom: "Camille Dubois",
-  //       role: "Mixologue",
-  //       image: "/team/camille.jpg",
-  //       description: "Créatrice de nos cocktails signature"
-  //     },
-  //     {
-  //       nom: "Lucas Moreau",
-  //       role: "Responsable Service",
-  //       image: "/team/lucas.jpg",
-  //       description: "Garant de votre expérience unique"
-  //     }
-  //   ];
-
-  //   // const certifications = [
-  //   //   { nom: "Café Bio Équitable", icon: "🌱" },
-  //   //   { nom: "Artisan Torréfacteur de France", icon: "🏆" },
-  //   //   { nom: "Établissement Responsable", icon: "♻️" },
-  //   //   { nom: "Meilleur Café Paris 2023", icon: "⭐" }
-  //   // ];
-
-  //   return (
-  //     <>
-  //       <Head>
-  //         <title>À Propos - Le Café Parisien | Notre Histoire</title>
-  //         <meta name="description" content="Découvrez l'histoire et les valeurs du Café Parisien, un établissement d'exception au cœur de Paris." />
-  //       </Head>
-
-  //       {/* Hero Section */}
-  //       <section className="relative h-96 bg-cover bg-center" style={{backgroundImage: 'url("/about-hero.jpg")'}}>
-  //         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-  //         <div className="relative z-10 h-full flex items-center justify-center text-center">
-  //           <div className="max-w-4xl mx-auto px-6">
-  //             <h1 className="text-5xl md:text-6xl font-serif font-bold text-white mb-4">
-  //               Notre Histoire
-  //             </h1>
-  //             <p className="text-xl text-white opacity-90">
-  //               Depuis 2010, l&apos;art du café réinventé
-  //             </p>
-  //           </div>
-  //         </div>
-  //       </section>
-
-  //       {/* Histoire Section */}
-  //       <section className="py-20 bg-white">
-  //         <div className="container mx-auto px-6">
-  //           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-  //             <div>
-  //               <h2 className="text-4xl font-serif font-bold text-[#3C2A21] mb-6">
-  //                 L&apos;Art du Café Réinventé
-  //               </h2>
-  //               <div className="space-y-4 text-lg text-gray-600">
-  //                 <p>
-  //                   Fondé en 2010 par Sophie Martin, Le Café Parisien est né d&apos;une passion 
-  //                   profonde pour l&apos;artisanat du café et du désir de créer un lieu unique 
-  //                   où tradition et innovation se rencontrent.
-  //                 </p>
-  //                 <p>
-  //                   Notre établissement s&apos;est rapidement imposé comme une référence 
-  //                   parisienne grâce à notre engagement envers la qualité, la durabilité 
-  //                   et lexpérience client exceptionnelle.
-  //                 </p>
-  //                 <p>
-  //                   Aujourd&apos;hui, nous sommes fiers de compter parmi les cafés les plus 
-  //                   réputés de la capitale, reconnus pour notre expertise et notre 
-  //                   approche innovante des boissons caféinées.
-  //                 </p>
-  //               </div>
-  //             </div>
-              
-  //             <div className="relative">
-  //               <div className="bg-[#3C2A21] rounded-2xl p-8 text-white">
-  //                 <h3 className="text-2xl font-serif font-bold mb-6 text-[#D4A574]">
-  //                   Notre Philosophie
-  //                 </h3>
-  //                 <p className="text-lg mb-6">
-  //                   &quot;Chez Le Café Parisien, nous croyons que chaque tasse de café 
-  //                   raconte une histoire. De la plantation à votre tasse, nous 
-  //                   veillons à ce que chaque étape respecte les plus hauts standards 
-  //                   de qualité et d&apos;éthique.&quot;
-  //                 </p>
-  //                 <div className="flex items-center space-x-4">
-  //                   <div className="w-16 h-16 bg-[#D4A574] rounded-full flex items-center justify-center">
-  //                     <FaCoffee className="text-2xl text-[#3C2A21]" />
-  //                   </div>
-  //                   <div>
-  //                     <div className="font-semibold">Sophie Martin</div>
-  //                     <div className="text-[#D4A574] text-sm">Fondatrice</div>
-  //                   </div>
-  //                 </div>
-  //               </div>
-  //             </div>
-  //           </div>
-  //         </div>
-  //       </section>
-
-  //       {/* Stats Section */}
-  //       <section>
-  //                       <div className="py-16 grid grid-cols-4 px-6 gap-6">
-  //                 <div className="text-center p-4 bg-[#F8F4F0] rounded-lg">
-  //                   <div className="text-3xl font-bold text-[#D4A574] mb-2">50+</div>
-  //                   <div className="text-gray-600">Boissons Uniques</div>
-  //                 </div>
-  //                 <div className="text-center p-4 bg-[#F8F4F0] rounded-lg">
-  //                   <div className="text-3xl font-bold text-[#D4A574] mb-2">12</div>
-  //                   <div className="text-gray-600">Ans d&apos;Expérience</div>
-  //                 </div>
-  //                 <div className="text-center p-4 bg-[#F8F4F0] rounded-lg">
-  //                   <div className="text-3xl font-bold text-[#D4A574] mb-2">1000+</div>
-  //                   <div className="text-gray-600">Clients Satisfaits</div>
-  //                 </div>
-  //                 <div className="text-center p-4 bg-[#F8F4F0] rounded-lg">
-  //                   <div className="text-3xl font-bold text-[#D4A574] mb-2">15</div>
-  //                   <div className="text-gray-600">Pays Fournisseurs</div>
-  //                 </div>
-  //               </div>
-  //       </section>
-
-  //       {/* Valeurs Section */}
-  //       <section className="py-20 bg-[#F8F4F0]">
-  //         <div className="container mx-auto px-6">
-  //           <div className="text-center mb-16">
-  //             <h2 className="text-4xl font-serif font-bold text-[#3C2A21] mb-4">
-  //               Nos Valeurs
-  //             </h2>
-  //             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-  //               Les principes qui guident chacune de nos actions
-  //             </p>
-  //           </div>
-            
-  //           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-  //             {valeurs.map((valeur, index) => (
-  //               <div key={index} className="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
-  //                 <div className="w-16 h-16 bg-[#D4A574] rounded-full flex items-center justify-center text-white mx-auto mb-4">
-  //                   {valeur.icon}
-  //                 </div>
-  //                 <h3 className="text-xl font-semibold text-[#3C2A21] mb-3">
-  //                   {valeur.title}
-  //                 </h3>
-  //                 <p className="text-gray-600">
-  //                   {valeur.description}
-  //                 </p>
-  //               </div>
-  //             ))}
-  //           </div>
-  //         </div>
-  //       </section>
-
-  //       {/* Équipe Section */}
-  //       <section className="py-20 bg-white">
-  //         <div className="container mx-auto px-6">
-  //           <div className="text-center mb-16">
-  //             <h2 className="text-4xl font-serif font-bold text-[#3C2A21] mb-4">
-  //               Notre Équipe
-  //             </h2>
-  //             <p className="text-xl text-gray-600">
-  //               Des passionnés à votre service
-  //             </p>
-  //           </div>
-            
-  //           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-  //             {equipe.map((membre, index) => (
-  //               <div key={index} className="text-center group">
-  //                 <div className="relative mb-6 overflow-hidden rounded-2xl">
-  //                   <div className="w-full h-80 bg-gradient-to-br from-[#3C2A21] to-[#D4A574] rounded-2xl flex items-center justify-center text-white text-lg">
-  //                     Image de {membre.nom}
-  //                   </div>
-  //                   <div className="absolute inset-0 bg-[#D4A574] opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-  //                 </div>
-  //                 <h3 className="text-xl font-semibold text-[#3C2A21] mb-2">
-  //                   {membre.nom}
-  //                 </h3>
-  //                 <div className="text-[#D4A574] font-medium mb-2">
-  //                   {membre.role}
-  //                 </div>
-  //                 <p className="text-gray-600 text-sm">
-  //                   {membre.description}
-  //                 </p>
-  //               </div>
-  //             ))}
-  //           </div>
-  //         </div>
-  //       </section>
-
-  //       {/* Certifications Section */}
-  //       {/* <section className="py-20 bg-[#3C2A21] text-white">
-  //         <div className="container mx-auto px-6">
-  //           <div className="text-center mb-16">
-  //             <h2 className="text-4xl font-serif font-bold mb-4">
-  //               Certifications & Reconnaissances
-  //             </h2>
-  //             <p className="text-xl text-[#D4A574]">
-  //               L&apos;excellence récompensée
-  //             </p>
-  //           </div>
-            
-  //           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
-  //             {certifications.map((certification, index) => (
-  //               <div key={index} className="text-center p-6 bg-[#4A3728] rounded-2xl hover:bg-[#5A4738] transition-colors duration-300">
-  //                 <div className="text-3xl mb-3">{certification.icon}</div>
-  //                 <h3 className="font-semibold">{certification.nom}</h3>
-  //               </div>
-  //             ))}
-  //           </div>
-            
-  //           <div className="text-center mt-12">
-  //             <button className="bg-[#D4A574] hover:bg-[#B8865B] text-[#3C2A21] font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105">
-  //               Voir notre carte
-  //             </button>
-  //           </div>
-  //         </div>
-  //       </section> */}
-  //     </>
-  //   );
-  // };
-
-
-  // app/a-propos/page.tsx
+// app/a-propos/page.tsx
 "use client";
 
 import Image from "next/image";
@@ -282,96 +19,96 @@ import {
 const valeurs = [
   {
     icon: FaLeaf,
-    title: "Durabilité",
+    title: "Nachhaltigkeit",
     description:
-      "Nous nous engageons à utiliser des produits locaux et durables dans toutes nos préparations.",
+      "Wir verpflichten uns, in allen unseren Zubereitungen lokale und nachhaltige Produkte zu verwenden.",
   },
   {
     icon: FaAward,
-    title: "Excellence",
+    title: "Exzellenz",
     description:
-      "La recherche de la perfection dans chaque détail, de la sélection des grains à la présentation.",
+      "Das Streben nach Perfektion in jedem Detail, von der Auswahl der Bohnen bis zur Präsentation.",
   },
   {
     icon: FaHeart,
-    title: "Passion",
+    title: "Leidenschaft",
     description:
-      "Notre amour pour le café se ressent dans chaque boisson que nous créons avec soin.",
+      "Unsere Liebe zum Kaffee spürt man in jedem Getränk, das wir mit Sorgfalt zubereiten.",
   },
   {
     icon: FaUsers,
-    title: "Communauté",
+    title: "Gemeinschaft",
     description:
-      "Créer un espace chaleureux où chacun se sent comme à la maison.",
+      "Einen herzlichen Ort schaffen, an dem sich jeder wie zu Hause fühlt.",
   },
 ];
 
 const equipe = [
   {
     nom: "Sophie Martin",
-    role: "Fondatrice & Barista Chef",
+    role: "Gründerin & Chef-Baristin",
     initiales: "SM",
-    description: "15 ans d'expérience dans l'art du café",
+    description: "15 Jahre Erfahrung in der Kunst des Kaffees",
   },
   {
     nom: "Thomas Lefebvre",
-    role: "Maître Torréfacteur",
+    role: "Röstmeister",
     initiales: "TL",
-    description: "Spécialiste des blends maison",
+    description: "Spezialist für unsere Hausmischungen",
   },
   {
     nom: "Camille Dubois",
-    role: "Mixologue",
+    role: "Mixologin",
     initiales: "CD",
-    description: "Créatrice de nos cocktails signature",
+    description: "Schöpferin unserer Signature-Cocktails",
   },
   {
     nom: "Lucas Moreau",
-    role: "Responsable Service",
+    role: "Serviceleiter",
     initiales: "LM",
-    description: "Garant de votre expérience unique",
+    description: "Garant für Ihr einzigartiges Erlebnis",
   },
 ];
 
 const chiffres = [
-  { valeur: "50+", label: "Boissons uniques" },
-  { valeur: "15", label: "Années d'expérience" },
-  { valeur: "10 000+", label: "Clients satisfaits" },
-  { valeur: "15", label: "Pays fournisseurs" },
+  { valeur: "50+", label: "Einzigartige Getränke" },
+  { valeur: "15", label: "Jahre Erfahrung" },
+  { valeur: "10 000+", label: "Zufriedene Kunden" },
+  { valeur: "15", label: "Lieferländer" },
 ];
 
 const jalons = [
   {
     annee: "2010",
-    titre: "Une idée née d'une passion",
+    titre: "Eine Idee, geboren aus Leidenschaft",
     texte:
-      "Sophie Martin ouvre un petit comptoir à café avec une seule conviction : servir le meilleur espresso de la ville.",
+      "Sophie Martin eröffnet eine kleine Kaffeebar mit nur einer Überzeugung: den besten Espresso der Stadt zu servieren.",
   },
   {
     annee: "2015",
-    titre: "La torréfaction maison",
+    titre: "Die hauseigene Rösterei",
     texte:
-      "Installation de notre premier torréfacteur artisanal. Nos grains sont désormais torréfiés sur place, chaque semaine.",
+      "Installation unserer ersten handwerklichen Röstmaschine. Seitdem werden unsere Bohnen jede Woche vor Ort geröstet.",
   },
   {
     annee: "2020",
-    titre: "Une communauté grandissante",
+    titre: "Eine wachsende Gemeinschaft",
     texte:
-      "Un espace repensé, plus chaleureux, pensé pour travailler, se retrouver et partager un moment.",
+      "Ein neu gestalteter, herzlicherer Raum zum Arbeiten, Treffen und Teilen eines besonderen Moments.",
   },
   {
-    annee: "Aujourd'hui",
-    titre: "Toujours plus curieux",
+    annee: "Heute",
+    titre: "Immer neugierig",
     texte:
-      "Nouvelles créations, événements live et collaborations locales — l'aventure continue.",
+      "Neue Kreationen, Live-Events und lokale Kooperationen – das Abenteuer geht weiter.",
   },
 ];
 
 const engagements = [
-  "Grains 100% Arabica torréfiés sur place",
-  "Producteurs locaux et commerce équitable",
-  "Zéro plastique à usage unique en salle",
-  "Formation continue de nos baristas",
+  "100 % Arabica-Bohnen, vor Ort geröstet",
+  "Lokale Produzenten und fairer Handel",
+  "Kein Einwegplastik im Lokal",
+  "Laufende Weiterbildung unserer Baristas",
 ];
 
 export default function AProposPage() {
@@ -405,7 +142,7 @@ export default function AProposPage() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/about-hero.jpg"
-            alt="Ambiance du café"
+            alt="Atmosphäre im Café"
             fill
             className="object-cover scale-105"
             priority
@@ -419,19 +156,19 @@ export default function AProposPage() {
             <div className="reveal flex items-center gap-3">
               <span className="h-px w-10 bg-[#D4A574]" />
               <span className="text-xs font-bold uppercase tracking-[0.28em] text-[#D4A574]">
-                Notre histoire
+                Unsere Geschichte
               </span>
             </div>
 
             <h1 className="reveal d-1 mt-6 font-serif text-5xl font-bold leading-[1.02] tracking-tight text-white sm:text-6xl md:text-7xl">
-              Depuis 2010,
+              Seit 2010,
               <br />
-              <span className="italic text-[#D4A574]">l&apos;art du café réinventé.</span>
+              <span className="italic text-[#D4A574]">die Kunst des Kaffees neu erfunden.</span>
             </h1>
 
             <p className="reveal d-2 mt-6 max-w-xl text-lg leading-relaxed text-white/75 md:text-xl">
-              Un lieu né d&apos;une passion profonde pour l&apos;artisanat du café, où tradition
-              et innovation se rencontrent dans chaque tasse.
+              Ein Ort, geboren aus einer tiefen Leidenschaft für das Kaffeehandwerk, an dem
+              Tradition und Innovation in jeder Tasse aufeinandertreffen.
             </p>
 
             <div className="reveal d-3 mt-10 flex flex-col gap-3 sm:flex-row">
@@ -439,14 +176,14 @@ export default function AProposPage() {
                 href="/carte"
                 className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#D4A574] px-8 py-4 text-sm font-semibold text-[#3C2A21] shadow-[0_20px_40px_-15px_rgba(212,165,116,0.7)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
-                Découvrir la carte
+                Karte entdecken
                 <FaArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
               </Link>
               <a
                 href="#histoire"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/5 px-8 py-4 text-sm font-semibold text-white backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:border-white hover:bg-white/15 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
-                Notre parcours
+                Unser Weg
               </a>
             </div>
           </div>
@@ -456,9 +193,9 @@ export default function AProposPage() {
         <div className="pointer-events-none absolute bottom-10 right-6 z-10 hidden lg:block">
           <div className="floaty rounded-3xl border border-white/20 bg-white/10 p-6 backdrop-blur-xl">
             <FaCoffee className="h-5 w-5 text-[#D4A574]" />
-            <p className="mt-3 font-serif text-2xl font-bold text-white">15 ans</p>
+            <p className="mt-3 font-serif text-2xl font-bold text-white">15 Jahre</p>
             <p className="mt-0.5 text-xs uppercase tracking-wider text-white/60">
-              de savoir-faire
+              Know-how
             </p>
           </div>
         </div>
@@ -496,31 +233,30 @@ export default function AProposPage() {
               <div className="mb-4 flex items-center gap-3">
                 <span className="h-px w-8 bg-[#B8865B]" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#B8865B]">
-                  Notre philosophie
+                  Unsere Philosophie
                 </span>
               </div>
 
               <h2 className="font-serif text-4xl font-bold leading-tight md:text-5xl">
-                L&apos;art du café,
+                Die Kunst des Kaffees,
                 <br />
-                <span className="italic text-[#B8865B]">réinventé.</span>
+                <span className="italic text-[#B8865B]">neu erfunden.</span>
               </h2>
 
               <div className="mt-7 space-y-5 text-lg leading-relaxed text-[#3C2A21]/65">
                 <p>
-                  Fondé en 2010 par Sophie Martin, Le Café Parisien est né d&apos;une passion
-                  profonde pour l&apos;artisanat du café et du désir de créer un lieu unique où
-                  tradition et innovation se rencontrent.
+                  TAKE & GO wurde 2010 von Sophie Martin gegründet – aus einer tiefen Leidenschaft
+                  für das Kaffeehandwerk und dem Wunsch, einen einzigartigen Ort zu schaffen, an
+                  dem Tradition und Innovation aufeinandertreffen.
                 </p>
                 <p>
-                  Notre établissement s&apos;est rapidement imposé comme une référence grâce à
-                  notre engagement envers la qualité, la durabilité et l&apos;expérience client
-                  exceptionnelle.
+                  Unser Haus hat sich schnell als feste Adresse etabliert, dank unseres Anspruchs
+                  an Qualität, Nachhaltigkeit und ein außergewöhnliches Kundenerlebnis.
                 </p>
                 <p>
-                  Aujourd&apos;hui, nous sommes fiers de compter parmi les cafés les plus
-                  réputés, reconnus pour notre expertise et notre approche innovante des
-                  boissons caféinées.
+                  Heute sind wir stolz darauf, zu den renommiertesten Cafés zu gehören – bekannt
+                  für unsere Expertise und unseren innovativen Umgang mit koffeinhaltigen
+                  Getränken.
                 </p>
               </div>
             </div>
@@ -535,9 +271,9 @@ export default function AProposPage() {
                 <FaQuoteLeft className="relative text-3xl text-[#D4A574]" />
 
                 <p className="relative mt-6 font-serif text-xl leading-relaxed text-white/90 md:text-2xl">
-                  Chez Le Café Parisien, nous croyons que chaque tasse de café raconte une
-                  histoire. De la plantation à votre tasse, nous veillons à ce que chaque étape
-                  respecte les plus hauts standards de qualité et d&apos;éthique.
+                  Bei TAKE & GO glauben wir, dass jede Tasse Kaffee eine Geschichte erzählt. Von
+                  der Plantage bis in Ihre Tasse achten wir darauf, dass jeder Schritt höchsten
+                  Qualitäts- und Ethikstandards entspricht.
                 </p>
 
                 <div className="relative mt-8 flex items-center gap-4 border-t border-white/15 pt-6">
@@ -546,7 +282,7 @@ export default function AProposPage() {
                   </span>
                   <div>
                     <p className="font-serif text-base font-bold">Sophie Martin</p>
-                    <p className="text-sm text-[#D4A574]">Fondatrice</p>
+                    <p className="text-sm text-[#D4A574]">Gründerin</p>
                   </div>
                 </div>
               </div>
@@ -564,14 +300,14 @@ export default function AProposPage() {
             <div className="mb-4 flex items-center justify-center gap-3">
               <span className="h-px w-8 bg-[#B8865B]" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#B8865B]">
-                Nos valeurs
+                Unsere Werte
               </span>
               <span className="h-px w-8 bg-[#B8865B]" />
             </div>
             <h2 className="font-serif text-4xl font-bold leading-tight md:text-5xl">
-              Les principes qui guident
+              Die Prinzipien, die
               <br />
-              <span className="italic text-[#B8865B]">chacune de nos actions.</span>
+              <span className="italic text-[#B8865B]">jedes unserer Handeln leiten.</span>
             </h2>
           </div>
 
@@ -609,14 +345,14 @@ export default function AProposPage() {
             <div className="mb-4 flex items-center justify-center gap-3">
               <span className="h-px w-8 bg-[#B8865B]" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#B8865B]">
-                Notre parcours
+                Unser Weg
               </span>
               <span className="h-px w-8 bg-[#B8865B]" />
             </div>
             <h2 className="font-serif text-4xl font-bold leading-tight md:text-5xl">
-              Quinze années
+              Fünfzehn Jahre
               <br />
-              <span className="italic text-[#B8865B]">de passion partagée.</span>
+              <span className="italic text-[#B8865B]">geteilter Leidenschaft.</span>
             </h2>
           </div>
 
@@ -663,14 +399,14 @@ export default function AProposPage() {
             <div className="mb-4 flex items-center justify-center gap-3">
               <span className="h-px w-8 bg-[#B8865B]" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#B8865B]">
-                L&apos;équipe
+                Das Team
               </span>
               <span className="h-px w-8 bg-[#B8865B]" />
             </div>
             <h2 className="font-serif text-4xl font-bold leading-tight md:text-5xl">
-              Des passionnés
+              Leidenschaftliche Menschen
               <br />
-              <span className="italic text-[#B8865B]">à votre service.</span>
+              <span className="italic text-[#B8865B]">für Sie im Einsatz.</span>
             </h2>
           </div>
 
@@ -721,7 +457,7 @@ export default function AProposPage() {
             <div className="relative">
               <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-[#D4A574]/30 to-transparent blur-2xl" />
               <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-white/70 shadow-[0_30px_70px_-35px_rgba(60,42,33,0.5)]">
-                <Image src="/caffe.jpg" alt="Nos engagements" fill className="object-cover" />
+                <Image src="/caffe.jpg" alt="Unser Engagement" fill className="object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#2A1D16]/60 via-transparent to-transparent" />
 
                 <div className="absolute bottom-5 left-5 right-5 rounded-2xl border border-white/25 bg-white/15 p-5 backdrop-blur-xl">
@@ -731,10 +467,10 @@ export default function AProposPage() {
                     </span>
                     <div>
                       <p className="font-serif text-base font-bold text-white">
-                        Engagement durable
+                        Nachhaltiges Engagement
                       </p>
                       <p className="text-xs text-white/70">
-                        Local, équitable et responsable
+                        Lokal, fair und verantwortungsvoll
                       </p>
                     </div>
                   </div>
@@ -747,19 +483,19 @@ export default function AProposPage() {
               <div className="mb-4 flex items-center gap-3">
                 <span className="h-px w-8 bg-[#B8865B]" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#B8865B]">
-                  Nos engagements
+                  Unsere Verpflichtungen
                 </span>
               </div>
 
               <h2 className="font-serif text-4xl font-bold leading-tight md:text-5xl">
-                Le bon goût,
+                Guter Geschmack,
                 <br />
-                <span className="italic text-[#B8865B]">sans compromis.</span>
+                <span className="italic text-[#B8865B]">ohne Kompromisse.</span>
               </h2>
 
               <p className="mt-6 text-lg leading-relaxed text-[#3C2A21]/65">
-                Parce qu&apos;un grand café commence par des choix responsables, nous
-                sélectionnons chaque partenaire avec soin.
+                Weil ein großartiger Kaffee mit verantwortungsvollen Entscheidungen beginnt,
+                wählen wir jeden Partner sorgfältig aus.
               </p>
 
               <ul className="mt-8 space-y-3">
@@ -775,7 +511,7 @@ export default function AProposPage() {
                 href="/contact"
                 className="group mt-9 inline-flex items-center gap-2 rounded-full bg-[#3C2A21] px-7 py-4 text-sm font-semibold text-white shadow-[0_16px_34px_-16px_rgba(60,42,33,0.8)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#2A1D16] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4A574]"
               >
-                Nous rendre visite
+                Besuchen Sie uns
                 <FaArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
               </Link>
             </div>
@@ -793,20 +529,20 @@ export default function AProposPage() {
             <div className="mb-4 flex items-center justify-center gap-3">
               <span className="h-px w-8 bg-[#D4A574]" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#D4A574]">
-                Prêt à nous rejoindre
+                Werden Sie Teil von uns
               </span>
               <span className="h-px w-8 bg-[#D4A574]" />
             </div>
 
             <h2 className="mx-auto max-w-2xl font-serif text-4xl font-bold leading-tight md:text-5xl">
-              Une table vous
+              Ein Tisch wartet
               <br />
-              <span className="italic text-[#D4A574]">attend chez nous.</span>
+              <span className="italic text-[#D4A574]">bei uns auf Sie.</span>
             </h2>
 
             <p className="mx-auto mt-5 max-w-xl text-lg text-white/65">
-              Découvrez notre carte, poussez la porte, et laissez-vous porter par
-              l&apos;expérience.
+              Entdecken Sie unsere Karte, treten Sie ein und lassen Sie sich vom Erlebnis
+              mitreißen.
             </p>
 
             <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
@@ -814,14 +550,14 @@ export default function AProposPage() {
                 href="/carte"
                 className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#D4A574] px-7 py-4 text-sm font-semibold text-[#3C2A21] transition-all duration-300 hover:-translate-y-0.5 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
-                Voir la carte
+                Karte ansehen
                 <FaArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
               </Link>
               <Link
                 href="/contact"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/25 px-7 py-4 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
-                Nous contacter
+                Kontakt aufnehmen
               </Link>
             </div>
           </div>

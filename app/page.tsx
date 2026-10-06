@@ -577,33 +577,34 @@ type Categorie = {
   nom: string;
 };
 
-const formatPrice = (n: number) => `${Math.round(n).toLocaleString("fr-FR")} €`;
+const formatPrice = (n: number) =>
+  new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" }).format(n);
 
 /* ----- Contenu (à adapter) ----- */
 
 const valeurs = [
   {
     icon: FaLeaf,
-    titre: "100% Bio",
-    texte: "Des grains de café sélectionnés avec soin, cultivés de manière durable et responsable.",
+    titre: "100 % Bio",
+    texte: "Sorgfältig ausgewählte Kaffeebohnen aus nachhaltigem und verantwortungsvollem Anbau.",
   },
   {
     icon: FaAward,
     titre: "Expertise",
-    texte: "Nos baristas certifiés maîtrisent parfaitement l'art de la préparation du café.",
+    texte: "Unsere zertifizierten Baristas beherrschen die Kunst der Kaffeezubereitung.",
   },
   {
     icon: FaClock,
-    titre: "Torréfaction Maison",
-    texte: "Nous torréfions nos grains sur place pour garantir une fraîcheur et un arôme optimaux.",
+    titre: "Hausröstung",
+    texte: "Wir rösten unsere Bohnen vor Ort, damit sie besonders frisch und aromatisch sind.",
   },
 ];
 
 const chiffres = [
-  { valeur: "1985", label: "Année de notre ouverture" },
-  { valeur: "25+", label: "Boissons et gourmandises" },
-  { valeur: "10 000+", label: "Clients servis chaque année" },
-  { valeur: "100%", label: "Arabica sélectionné" },
+  { valeur: "1985", label: "Jahr unserer Eröffnung" },
+  { valeur: "25+", label: "Getränke und Köstlichkeiten" },
+  { valeur: "10.000+", label: "Gäste pro Jahr" },
+  { valeur: "100 %", label: "Ausgewählter Arabica" },
 ];
 
 function getCategoryPresentation(name: string) {
@@ -612,7 +613,7 @@ function getCategoryPresentation(name: string) {
   if (normalizedName.includes("cafe") || normalizedName.includes("the")) {
     return {
       icon: FaCoffee,
-      texte: "L'art du café dans sa pure expression, du cappuccino au thé glacé.",
+      texte: "Kaffeegenuss in seiner reinsten Form – vom Cappuccino bis zum Eistee.",
     };
   }
 
@@ -623,7 +624,7 @@ function getCategoryPresentation(name: string) {
   ) {
     return {
       icon: FaMugHot,
-      texte: "Des boissons rafraîchissantes pour accompagner vos journées.",
+      texte: "Erfrischende Getränke für jeden Moment des Tages.",
     };
   }
 
@@ -634,7 +635,7 @@ function getCategoryPresentation(name: string) {
   ) {
     return {
       icon: FaBirthdayCake,
-      texte: "Des créations gourmandes préparées avec soin.",
+      texte: "Mit Sorgfalt zubereitete süße Kreationen.",
     };
   }
 
@@ -645,59 +646,59 @@ function getCategoryPresentation(name: string) {
   ) {
     return {
       icon: FaCookieBite,
-      texte: "Des gourmandises locales, préparées chaque jour.",
+      texte: "Regionale Köstlichkeiten, täglich frisch zubereitet.",
     };
   }
 
   return {
     icon: FaCookieBite,
-    texte: `Découvrez nos produits de la catégorie ${name}.`,
+    texte: `Entdecken Sie unsere Produkte aus der Kategorie ${name}.`,
   };
 }
 
 const etapes = [
   {
     icon: FaCoffee,
-    titre: "Choisissez",
-    texte: "Parcourez notre carte et ajoutez vos boissons et gourmandises préférées au panier.",
+    titre: "Auswählen",
+    texte: "Entdecken Sie unsere Speisekarte und legen Sie Ihre Lieblingsgetränke und Snacks in den Warenkorb.",
   },
   {
     icon: FaShoppingBag,
-    titre: "Commandez",
-    texte: "Validez votre commande en ligne en quelques clics, sans file d'attente.",
+    titre: "Bestellen",
+    texte: "Geben Sie Ihre Bestellung mit wenigen Klicks online auf – ganz ohne Anstehen.",
   },
   {
     icon: FaMotorcycle,
-    titre: "Savourez",
-    texte: "Récupérez votre commande sur place ou faites-vous livrer à votre porte.",
+    titre: "Genießen",
+    texte: "Holen Sie Ihre Bestellung vor Ort ab oder lassen Sie sie sich nach Hause liefern.",
   },
 ];
 
 const avis = [
   {
     nom: "Aïcha N.",
-    role: "Cliente fidèle",
+    role: "Stammkundin",
     texte:
-      "Le meilleur cappuccino de Douala. L'accueil est chaleureux et tout est toujours frais.",
+      "Der beste Cappuccino in Douala. Herzlicher Empfang und alles immer frisch.",
   },
   {
     nom: "Patrick M.",
-    role: "Travaille au café",
+    role: "Arbeitet gern im Café",
     texte:
-      "Une ambiance calme et propre, idéale pour travailler ou retrouver des amis.",
+      "Eine ruhige, gepflegte Atmosphäre – ideal zum Arbeiten oder Treffen mit Freunden.",
   },
   {
     nom: "Linda T.",
-    role: "Commande en ligne",
+    role: "Online-Bestellerin",
     texte:
-      "Commande simple, prête rapidement, et les beignets sont délicieux. Je recommande.",
+      "Einfach bestellt, schnell fertig und die Beignets sind köstlich. Sehr empfehlenswert!",
   },
 ];
 
 const horaires = [
-  { jour: "Lundi – Vendredi", heures: "7h00 – 21h00" },
-  { jour: "Samedi", heures: "8h00 – 22h00" },
-  { jour: "Dimanche", heures: "9h00 – 20h00" },
+  { jour: "Montag – Freitag", heures: "7:00 – 21:00 Uhr" },
+  { jour: "Samstag", heures: "8:00 – 22:00 Uhr" },
+  { jour: "Sonntag", heures: "9:00 – 20:00 Uhr" },
 ];
 
 export default function Accueil() {
@@ -719,7 +720,7 @@ export default function Accueil() {
               id: Number(product.id),
               nom: product.nom,
               image: product.image || "/caffee.jpg",
-              description: product.description || "Préparé avec soin dans notre café",
+              description: product.description || "Mit Sorgfalt in unserem Café zubereitet",
               prix: Number(product.prix),
               categorie: String(product.categorie_nom ?? product.categorie_id),
               populaire: true,
@@ -780,7 +781,7 @@ export default function Accueil() {
           <div className="absolute inset-0 z-0">
             <Image
               src="/caffe.jpg"
-              alt="Ambiance du café"
+              alt="Atmosphäre des Cafés"
               fill
               className="object-cover scale-105"
               priority
@@ -794,19 +795,19 @@ export default function Accueil() {
               <div className="reveal flex items-center gap-3">
                 <span className="h-px w-10 bg-[#D4A574]" />
                 <span className="text-xs font-bold uppercase tracking-[0.28em] text-[#D4A574]">
-                  Depuis 1985
+                  Seit 1985
                 </span>
               </div>
 
               <h1 className="reveal d-1 mt-6 font-serif text-5xl font-bold leading-[1.02] tracking-tight text-white sm:text-6xl md:text-7xl">
-                L&apos;art du café,
+                Die Kunst des Kaffees,
                 <br />
-                <span className="italic text-[#D4A574]">à la française.</span>
+                <span className="italic text-[#D4A574]">auf französische Art.</span>
               </h1>
 
               <p className="reveal d-2 mt-6 max-w-xl text-lg leading-relaxed text-white/75 md:text-xl">
-                Découvrez une expérience unique où chaque tasse raconte une histoire de
-                passion et de savoir-faire.
+                Entdecken Sie ein einzigartiges Erlebnis, bei dem jede Tasse von Leidenschaft
+                und handwerklichem Können erzählt.
               </p>
 
               <div className="reveal d-3 mt-10 flex flex-col gap-3 sm:flex-row">
@@ -814,14 +815,14 @@ export default function Accueil() {
                   href="/carte"
                   className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#D4A574] px-8 py-4 text-sm font-semibold text-[#3C2A21] shadow-[0_20px_40px_-15px_rgba(212,165,116,0.7)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                 >
-                  Déguster maintenant
+                  Jetzt genießen
                   <FaArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
                 </Link>
                 <a
                   href="#histoire"
                   className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/5 px-8 py-4 text-sm font-semibold text-white backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:border-white hover:bg-white/15 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                 >
-                  Notre histoire
+                  Unsere Geschichte
                 </a>
               </div>
 
@@ -829,15 +830,15 @@ export default function Accueil() {
               <div className="reveal d-4 mt-14 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-white/60">
                 <span className="flex items-center gap-2">
                   <FaClock className="h-3.5 w-3.5 text-[#D4A574]" />
-                  Ouvert 7j/7
+                  Täglich geöffnet
                 </span>
                 <span className="flex items-center gap-2">
                   <FaCheckCircle className="h-3.5 w-3.5 text-[#D4A574]" />
-                  Torréfaction maison
+                  Hausgeröstet
                 </span>
                 <span className="flex items-center gap-2">
                   <FaMapMarkerAlt className="h-3.5 w-3.5 text-[#D4A574]" />
-                  Douala, Cameroun
+                  Douala, Kamerun
                 </span>
               </div>
             </div>
@@ -853,7 +854,7 @@ export default function Accueil() {
               </div>
               <p className="mt-2 font-serif text-2xl font-bold text-white">4,9 / 5</p>
               <p className="mt-0.5 text-xs uppercase tracking-wider text-white/60">
-                2 400+ avis clients
+                Über 2.400 Bewertungen
               </p>
             </div>
           </div>
@@ -892,9 +893,9 @@ export default function Accueil() {
                 <span className="h-px w-8 bg-[#B8865B]" />
               </div>
               <h2 className="font-serif text-4xl font-bold leading-tight md:text-5xl">
-                L&apos;excellence dans
+                Exzellenz in
                 <br />
-                <span className="italic text-[#B8865B]">chaque détail.</span>
+                <span className="italic text-[#B8865B]">jedem Detail.</span>
               </h2>
             </div>
 
@@ -932,14 +933,14 @@ export default function Accueil() {
               <div className="mb-4 flex items-center justify-center gap-3">
                 <span className="h-px w-8 bg-[#B8865B]" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#B8865B]">
-                  Notre univers
+                  Unsere Welt
                 </span>
                 <span className="h-px w-8 bg-[#B8865B]" />
               </div>
               <h2 className="font-serif text-4xl font-bold leading-tight md:text-5xl">
-                Quatre façons de faire
+                Vier Möglichkeiten für
                 <br />
-                <span className="italic text-[#B8865B]">une pause gourmande.</span>
+                <span className="italic text-[#B8865B]">eine genussvolle Pause.</span>
               </h2>
             </div>
 
@@ -966,7 +967,7 @@ export default function Accueil() {
                   </p>
 
                   <span className="relative mt-6 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#B8865B] transition-colors group-hover:text-[#3C2A21]">
-                    Explorer
+                    Entdecken
                     <FaArrowRight className="h-3 w-3 transition-transform duration-300 group-hover:translate-x-1" />
                   </span>
                 </Link>
@@ -980,7 +981,7 @@ export default function Accueil() {
             )}
             {!categoriesError && categoriesFromDb.length === 0 && (
               <p className="mt-6 text-center text-[#3C2A21]/65">
-                Aucune catégorie disponible pour le moment.
+                Zurzeit sind keine Kategorien verfügbar.
               </p>
             )}
           </div>
@@ -994,13 +995,13 @@ export default function Accueil() {
                 <div className="mb-4 flex items-center gap-3">
                   <span className="h-px w-8 bg-[#B8865B]" />
                   <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#B8865B]">
-                    Incontournables
+                    Unsere Highlights
                   </span>
                 </div>
                 <h2 className="font-serif text-4xl font-bold leading-tight md:text-5xl">
-                  Les préférés de
+                  Die Favoriten
                   <br />
-                  <span className="italic text-[#B8865B]">nos clients.</span>
+                  <span className="italic text-[#B8865B]">unserer Gäste.</span>
                 </h2>
               </div>
 
@@ -1008,7 +1009,7 @@ export default function Accueil() {
                 href="/carte"
                 className="group inline-flex items-center gap-2 rounded-full border border-[#3C2A21]/25 px-6 py-3 text-sm font-semibold transition-all duration-300 hover:border-[#3C2A21] hover:bg-[#3C2A21] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4A574]"
               >
-                Toute la carte
+                Zur Speisekarte
                 <FaArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
               </Link>
             </div>
@@ -1033,7 +1034,7 @@ export default function Accueil() {
                     {boisson.populaire && (
                       <span className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-[#3C2A21] shadow-[0_6px_18px_-8px_rgba(60,42,33,0.5)] backdrop-blur">
                         <FaStar className="h-2.5 w-2.5 text-[#D4A574]" />
-                        Populaire
+                        Beliebt
                       </span>
                     )}
                   </div>
@@ -1057,7 +1058,7 @@ export default function Accueil() {
                       className="group/btn mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-[#3C2A21] px-5 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#2A1D16] hover:shadow-[0_14px_28px_-14px_rgba(60,42,33,0.8)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4A574]"
                     >
                       <FaShoppingBag className="h-3.5 w-3.5" />
-                      Commander
+                      Bestellen
                     </Link>
                   </div>
                 </article>
@@ -1070,7 +1071,7 @@ export default function Accueil() {
             )}
             {!productsError && boissonsPopulaires.length === 0 && (
               <p className="mt-6 text-center text-[#3C2A21]/65">
-                Aucun produit disponible pour le moment.
+                Zurzeit sind keine Produkte verfügbar.
               </p>
             )}
           </div>
@@ -1084,14 +1085,14 @@ export default function Accueil() {
               <div className="relative">
                 <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-[#D4A574]/30 to-transparent blur-2xl" />
                 <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-white/70 shadow-[0_30px_70px_-35px_rgba(60,42,33,0.5)]">
-                  <Image src="/caffe.jpg" alt="Notre café" fill className="object-cover" />
+                  <Image src="/caffe.jpg" alt="Unser Café" fill className="object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#2A1D16]/40 via-transparent to-transparent" />
 
                   {/* Badge années */}
                   <div className="absolute bottom-5 left-5 rounded-2xl border border-white/30 bg-white/15 px-5 py-4 backdrop-blur-xl">
                     <p className="font-serif text-3xl font-bold text-white">40</p>
                     <p className="text-xs uppercase tracking-wider text-white/75">
-                      ans de passion
+                      Jahre voller Leidenschaft
                     </p>
                   </div>
                 </div>
@@ -1102,30 +1103,30 @@ export default function Accueil() {
                 <div className="mb-4 flex items-center gap-3">
                   <span className="h-px w-8 bg-[#B8865B]" />
                   <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#B8865B]">
-                    Notre histoire
+                    Unsere Geschichte
                   </span>
                 </div>
 
                 <h2 className="font-serif text-4xl font-bold leading-tight md:text-5xl">
-                  Plus qu&apos;un café,
+                  Mehr als ein Café,
                   <br />
-                  <span className="italic text-[#B8865B]">une véritable expérience.</span>
+                  <span className="italic text-[#B8865B]">ein echtes Erlebnis.</span>
                 </h2>
 
                 <p className="mt-6 text-lg leading-relaxed text-[#3C2A21]/65">
-                  Depuis 1985, nous sélectionnons les meilleurs grains et les torréfions sur
-                  place pour vous offrir des arômes toujours frais.
+                  Seit 1985 wählen wir die besten Bohnen aus und rösten sie vor Ort,
+                  damit Sie stets frische Aromen genießen können.
                 </p>
                 <p className="mt-4 text-lg leading-relaxed text-[#3C2A21]/65">
-                  Notre équipe vous accueille dans un espace chaleureux et convivial, pensé
-                  pour se détendre, travailler ou partager un moment entre amis.
+                  Unser Team empfängt Sie in einer gemütlichen, einladenden Atmosphäre –
+                  zum Entspannen, Arbeiten oder für gemeinsame Zeit mit Freunden.
                 </p>
 
                 <ul className="mt-8 space-y-3">
                   {[
-                    "Grains 100% Arabica torréfiés sur place",
-                    "Baristas formés à l'art du latte",
-                    "Espace chaleureux et WiFi gratuit",
+                    "100 % Arabica-Bohnen, vor Ort geröstet",
+                    "Baristas mit Latte-Art-Ausbildung",
+                    "Gemütlicher Raum und kostenloses WLAN",
                   ].map((point) => (
                     <li key={point} className="flex items-start gap-3 text-[#3C2A21]/75">
                       <FaCheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-[#B8865B]" />
@@ -1138,7 +1139,7 @@ export default function Accueil() {
                   href="/contact"
                   className="group mt-9 inline-flex items-center gap-2 rounded-full bg-[#3C2A21] px-7 py-4 text-sm font-semibold text-white shadow-[0_16px_34px_-16px_rgba(60,42,33,0.8)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#2A1D16] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4A574]"
                 >
-                  Nous rendre visite
+                  Besuchen Sie uns
                   <FaArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
                 </Link>
               </div>
@@ -1153,14 +1154,14 @@ export default function Accueil() {
               <div className="mb-4 flex items-center justify-center gap-3">
                 <span className="h-px w-8 bg-[#B8865B]" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#B8865B]">
-                  Commande
+                  Bestellen
                 </span>
                 <span className="h-px w-8 bg-[#B8865B]" />
               </div>
               <h2 className="font-serif text-4xl font-bold leading-tight md:text-5xl">
-                Commander en
+                Bestellen in
                 <br />
-                <span className="italic text-[#B8865B]">3 étapes simples.</span>
+                <span className="italic text-[#B8865B]">3 einfachen Schritten.</span>
               </h2>
             </div>
 
@@ -1196,14 +1197,14 @@ export default function Accueil() {
               <div className="mb-4 flex items-center justify-center gap-3">
                 <span className="h-px w-8 bg-[#B8865B]" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#B8865B]">
-                  Témoignages
+                  Gästestimmen
                 </span>
                 <span className="h-px w-8 bg-[#B8865B]" />
               </div>
               <h2 className="font-serif text-4xl font-bold leading-tight md:text-5xl">
-                Ils nous font
+                Sie vertrauen
                 <br />
-                <span className="italic text-[#B8865B]">confiance.</span>
+                <span className="italic text-[#B8865B]">uns.</span>
               </h2>
             </div>
 
@@ -1232,7 +1233,7 @@ export default function Accueil() {
 
                     <div
                       className="flex gap-0.5 text-[#D4A574]"
-                      aria-label="5 étoiles sur 5"
+                      aria-label="5 von 5 Sternen"
                     >
                       {[...Array(5)].map((_, i) => (
                         <FaStar key={i} className="h-3 w-3" />
@@ -1252,17 +1253,17 @@ export default function Accueil() {
               <div className="mb-4 flex items-center justify-center gap-3">
                 <span className="h-px w-8 bg-[#B8865B]" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#B8865B]">
-                  Infos pratiques
+                  Praktische Informationen
                 </span>
                 <span className="h-px w-8 bg-[#B8865B]" />
               </div>
               <h2 className="font-serif text-4xl font-bold leading-tight md:text-5xl">
-                Venez nous
+                Besuchen Sie
                 <br />
-                <span className="italic text-[#B8865B]">voir.</span>
+                <span className="italic text-[#B8865B]">uns.</span>
               </h2>
               <p className="mt-5 text-lg text-[#3C2A21]/60">
-                Un espace chaleureux, ouvert tous les jours.
+                Ein gemütlicher Ort, täglich für Sie geöffnet.
               </p>
             </div>
 
@@ -1273,7 +1274,7 @@ export default function Accueil() {
                   <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#F0E6D2]">
                     <FaClock className="h-4 w-4 text-[#3C2A21]" />
                   </span>
-                  Horaires d&apos;ouverture
+                  Öffnungszeiten
                 </h3>
 
                 <dl className="mt-6 divide-y divide-[#3C2A21]/8">
@@ -1290,7 +1291,7 @@ export default function Accueil() {
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500/70" />
                     <span className="relative inline-flex h-2 w-2 rounded-full bg-green-600" />
                   </span>
-                  Happy Hour de 16h à 19h — −20% sur les boissons
+                  Happy Hour von 16 bis 19 Uhr – 20 % Rabatt auf Getränke
                 </div>
               </div>
 
@@ -1300,12 +1301,12 @@ export default function Accueil() {
                   <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#F0E6D2]">
                     <FaMapMarkerAlt className="h-4 w-4 text-[#3C2A21]" />
                   </span>
-                  Nous trouver
+                  So finden Sie uns
                 </h3>
 
                 <ul className="mt-6 space-y-5">
                   {[
-                    { icon: FaMapMarkerAlt, text: "Douala, Cameroun" },
+                    { icon: FaMapMarkerAlt, text: "Douala, Kamerun" },
                     { icon: FaPhoneAlt, text: "+237 6 xx xx xx xx" },
                     { icon: FaEnvelope, text: "contact@coffeehouse.com" },
                   ].map(({ icon: Icon, text }) => (
@@ -1322,7 +1323,7 @@ export default function Accueil() {
                   href="/contact"
                   className="group mt-7 inline-flex items-center gap-1.5 text-sm font-semibold text-[#B8865B] transition-colors hover:text-[#3C2A21]"
                 >
-                  Voir l&apos;itinéraire
+                  Route anzeigen
                   <FaArrowRight className="h-3 w-3 transition-transform duration-300 group-hover:translate-x-0.5" />
                 </Link>
               </div>
@@ -1340,19 +1341,19 @@ export default function Accueil() {
               <div className="mb-4 flex items-center justify-center gap-3">
                 <span className="h-px w-8 bg-[#D4A574]" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#D4A574]">
-                  Prêt à découvrir
+                  Bereit zum Entdecken
                 </span>
                 <span className="h-px w-8 bg-[#D4A574]" />
               </div>
 
               <h2 className="mx-auto max-w-2xl font-serif text-4xl font-bold leading-tight md:text-5xl">
-                Votre pause café vous
+                Ihre Kaffeepause
                 <br />
-                <span className="italic text-[#D4A574]">attend.</span>
+                <span className="italic text-[#D4A574]">wartet auf Sie.</span>
               </h2>
 
               <p className="mx-auto mt-5 max-w-xl text-lg text-white/65">
-                Commandez en ligne et profitez de votre boisson préférée en quelques minutes.
+                Bestellen Sie online und genießen Sie Ihr Lieblingsgetränk in wenigen Minuten.
               </p>
 
               <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
@@ -1360,14 +1361,14 @@ export default function Accueil() {
                   href="/carte"
                   className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#D4A574] px-7 py-4 text-sm font-semibold text-[#3C2A21] transition-all duration-300 hover:-translate-y-0.5 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                 >
-                  Commander maintenant
+                  Jetzt bestellen
                   <FaArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
                 </Link>
                 <Link
                   href="/contact"
                   className="inline-flex items-center justify-center gap-2 rounded-full border border-white/25 px-7 py-4 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                 >
-                  Nous contacter
+                  Kontaktieren Sie uns
                 </Link>
               </div>
 

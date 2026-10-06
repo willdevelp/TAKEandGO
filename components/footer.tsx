@@ -98,17 +98,17 @@ import {
 } from "react-icons/fa";
 
 const navigation = [
-  { href: "/", label: "Accueil" },
-  { href: "/carte", label: "Notre carte" },
-  { href: "/a-propos", label: "À propos" },
-  { href: "/contact", label: "Contact" },
-  { href: "/panier", label: "Mon panier" },
+  { href: "/", label: "Startseite" },
+  { href: "/carte", label: "Speisekarte" },
+  { href: "/a-propos", label: "Über uns" },
+  { href: "/contact", label: "Kontakt" },
+  { href: "/panier", label: "Warenkorb" },
 ];
 
 const legal = [
-  { href: "/politique-confidentialite", label: "Confidentialité" },
-  { href: "/mentions-legales", label: "Mentions légales" },
-  { href: "/cgv", label: "CGV" },
+  { href: "/politique-confidentialite", label: "Datenschutz" },
+  { href: "/mentions-legales", label: "Impressum" },
+  { href: "/cgv", label: "AGB" },
 ];
 
 export default function Footer() {
@@ -142,9 +142,9 @@ export default function Footer() {
                 </span>
               </div>
               <h2 className="font-serif text-2xl font-bold leading-tight text-white md:text-3xl">
-                Recevez nos offres et
+                Erhalten Sie unsere Angebote und
                 <br />
-                <span className="italic text-[#D4A574]">nouveautés gourmandes.</span>
+                <span className="italic text-[#D4A574]">kulinarische Neuigkeiten.</span>
               </h2>
             </div>
 
@@ -155,8 +155,8 @@ export default function Footer() {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="votre@email.com"
-                  aria-label="Votre adresse email"
+                  placeholder="ihre@email.com"
+                  aria-label="Ihre E-Mail-Adresse"
                   className="w-full rounded-2xl border border-white/15 bg-white/5 px-5 py-4 text-sm text-white placeholder:text-white/40 outline-none backdrop-blur transition-all duration-200 focus:border-[#D4A574] focus:bg-white/10 focus:ring-4 focus:ring-[#D4A574]/15"
                 />
                 <button
@@ -166,18 +166,18 @@ export default function Footer() {
                   {subscribed ? (
                     <>
                       <FaCheckCircle className="h-3.5 w-3.5" />
-                      Inscrit
+                      Angemeldet
                     </>
                   ) : (
                     <>
-                      S&apos;inscrire
+                      Abonnieren
                       <FaArrowRight className="h-3 w-3 transition-transform duration-300 group-hover:translate-x-0.5" />
                     </>
                   )}
                 </button>
               </div>
               <p className="mt-3 text-xs text-white/40">
-                Pas de spam. Désinscription en un clic.
+                Kein Spam. Abmeldung mit einem Klick.
               </p>
             </form>
           </div>
@@ -202,14 +202,14 @@ export default function Footer() {
                   TAKE <span className="text-[#D4A574]">&</span> GO
                 </span>
                 <span className="mt-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-white/45">
-                  Café Parisien
+                  Schweizer Kaffee
                 </span>
               </span>
             </Link>
 
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-white/55">
-              Un lieu chaleureux pour savourer des cafés d&apos;exception, des pâtisseries
-              artisanales et des moments de détente.
+              Ein gemütlicher Ort für außergewöhnlichen Kaffee, handgemachtes Gebäck
+              und entspannte Momente.
             </p>
 
             {/* Réseaux */}
@@ -254,18 +254,18 @@ export default function Footer() {
           {/* Contact */}
           <div className="lg:col-span-3">
             <h3 className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#D4A574]">
-              Nous trouver
+              So finden Sie uns
             </h3>
             <ul className="mt-5 space-y-4 text-sm">
               {[
-                { icon: FaMapMarkerAlt, text: "Douala, Cameroun" },
+                { icon: FaMapMarkerAlt, text: "Douala, Kamerun" },
                 { icon: FaPhoneAlt, text: "+237 699 12 34 56", href: "tel:+237699123456" },
                 {
                   icon: FaEnvelope,
                   text: "contact@takeandgo.com",
                   href: "mailto:contact@takeandgo.com",
                 },
-                { icon: FaClock, text: "Lun – Dim · 7h – 22h" },
+                { icon: FaClock, text: "Mo – So · 7:00 – 22:00 Uhr" },
               ].map(({ icon: Icon, text, href }, i) => (
                 <li key={i} className="flex items-start gap-3">
                   <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white/8">
@@ -289,16 +289,16 @@ export default function Footer() {
           {/* CTA */}
           <div className="lg:col-span-3">
             <h3 className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#D4A574]">
-              Commander
+              Bestellen
             </h3>
             <p className="mt-5 text-sm leading-relaxed text-white/55">
-              Passez commande en ligne et récupérez votre boisson sans attendre.
+              Bestellen Sie online und holen Sie Ihr Getränk ohne Wartezeit ab.
             </p>
             <Link
               href="/carte"
               className="group mt-5 inline-flex items-center gap-2 rounded-full bg-[#D4A574] px-5 py-3 text-sm font-semibold text-[#2A1D16] transition-all duration-300 hover:-translate-y-0.5 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4A574]"
             >
-              Voir la carte
+              Speisekarte ansehen
               <FaArrowRight className="h-3 w-3 transition-transform duration-300 group-hover:translate-x-0.5" />
             </Link>
 
@@ -308,7 +308,7 @@ export default function Footer() {
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
               </span>
               <span className="text-xs font-medium text-white/70">
-                Ouvert maintenant · jusqu&apos;à 22h
+                Jetzt geöffnet · bis 22 Uhr
               </span>
             </div>
           </div>
@@ -317,7 +317,7 @@ export default function Footer() {
         {/* ---------- Bas ---------- */}
         <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 py-7 text-xs text-white/40 sm:flex-row">
           <p>
-            © {new Date().getFullYear()} Take and Go. Tous droits réservés.
+            © {new Date().getFullYear()} Take and Go. Alle Rechte vorbehalten.
           </p>
 
           <ul className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
@@ -334,7 +334,7 @@ export default function Footer() {
           </ul>
 
           <p className="flex items-center gap-1.5">
-            Fait avec <span className="text-[#D4A574]">♥</span> à Douala
+            Mit <span className="text-[#D4A574]">♥</span> in Douala gemacht
           </p>
         </div>
       </div>

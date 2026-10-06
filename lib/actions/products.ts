@@ -19,7 +19,7 @@ export async function listFeaturedProductsAction() {
   try {
     return { success: true as const, data: await listFeaturedProducts() };
   } catch {
-    return { success: false as const, error: "Impossible de charger les produits" };
+    return { success: false as const, error: "Die Produkte konnten nicht geladen werden." };
   }
 }
 
@@ -27,7 +27,7 @@ export async function listProductsAction() {
   try {
     return { success: true as const, data: await listProducts() };
   } catch {
-    return { success: false as const, error: "Impossible de charger les produits" };
+    return { success: false as const, error: "Die Produkte konnten nicht geladen werden." };
   }
 }
 
@@ -35,7 +35,7 @@ export async function listCategoriesAction() {
   try {
     return { success: true as const, data: await listCategories() };
   } catch {
-    return { success: false as const, error: "Impossible de charger les catégories" };
+    return { success: false as const, error: "Die Kategorien konnten nicht geladen werden." };
   }
 }
 
@@ -46,7 +46,7 @@ export async function createProductAction(input: unknown) {
   try {
     return { success: true as const, data: await createProduct(parsed.data) };
   } catch {
-    return { success: false as const, error: "Impossible de créer le produit" };
+    return { success: false as const, error: "Das Produkt konnte nicht erstellt werden." };
   }
 }
 
@@ -57,7 +57,7 @@ export async function updateProductAction(input: unknown) {
   try {
     return { success: true as const, data: await updateProduct(parsed.data) };
   } catch {
-    return { success: false as const, error: "Impossible de modifier le produit" };
+    return { success: false as const, error: "Das Produkt konnte nicht aktualisiert werden." };
   }
 }
 
@@ -68,7 +68,7 @@ export async function deleteProductAction(input: unknown) {
   try {
     return { success: true as const, data: await deleteProduct(parsed.data.id) };
   } catch {
-    return { success: false as const, error: "Impossible de supprimer le produit" };
+    return { success: false as const, error: "Das Produkt konnte nicht gelöscht werden." };
   }
 }
 
